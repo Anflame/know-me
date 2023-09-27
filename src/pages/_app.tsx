@@ -1,6 +1,19 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import type { AppProps } from 'next/app';
+import { CustomQueryClientProvider, CustomThemeProvider } from '@/shared/utils';
+import { GlobalOverride } from '@/shared/GlobalOverride';
+import { CssBaseline } from '@mui/material';
+import { FC } from 'react';
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+const App: FC<AppProps> = ({ Component, pageProps }) => {
+  return (
+    <CustomThemeProvider>
+      <CustomQueryClientProvider pageProps={pageProps}>
+        <CssBaseline />
+        <GlobalOverride />
+        <Component {...pageProps} />
+      </CustomQueryClientProvider>
+    </CustomThemeProvider>
+  );
+};
+
+export default App;

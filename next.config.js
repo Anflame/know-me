@@ -1,6 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-}
+  webpack(config, { isServer }) {
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ['@svgr/webpack'],
+    });
 
-module.exports = nextConfig
+    if (!isServer) {
+      config.resolve.fallback = { fs: false, path: false };
+    }
+
+    return config;
+  },
+};
+
+module.exports = nextConfig;
