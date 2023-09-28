@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeOptions, ThemeProvider } from '@mui/material/styles';
 
 import {
   breakpoints,
@@ -10,6 +10,7 @@ import {
   themeConstants,
   spacing,
 } from '../theme';
+import { MuiButtonOverride, MuiTextFieldOverride } from '../theme/components';
 
 const baseTheme = {
   spacing,
@@ -22,9 +23,18 @@ const baseTheme = {
   breakpoints,
 };
 
+const componentsOverride: ThemeOptions['components'] = {
+  // MuiCssBaseline: {
+  //   styleOverrides: normalizedFontFaces.join('\n'),
+  // },
+  ...MuiButtonOverride,
+  ...MuiTextFieldOverride,
+};
+
 const theme = createTheme({
   ...baseTheme,
   palette: { ...base, ...customPalette },
+  components: componentsOverride,
 });
 
 const CustomThemeProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
