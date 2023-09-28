@@ -1,26 +1,24 @@
 import Head from 'next/head';
 import { Button, Grid, TextField, inputBaseClasses, styled } from '@mui/material';
 
-const Home = () => {
-  return (
-    <>
-      <Head>
-        <title>Know-me</title>
-        <meta name="description" content="Know-me" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
-      <StyledMain>
-        <StyledContent>
-          <StyledTextField fullWidth variant="standard" />
-          <StyledTextField fullWidth variant="standard" />
-          <StyledButton variant="outlined" color="secondary" fullWidth>
-            Send
-          </StyledButton>
-        </StyledContent>
-      </StyledMain>
-    </>
-  );
-};
+const Home = () => (
+  <>
+    <Head>
+      <title>Know-me</title>
+      <meta name="description" content="Know-me" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </Head>
+    <StyledMain>
+      <StyledContent>
+        <StyledTextField fullWidth variant="standard" />
+        <StyledTextField fullWidth variant="standard" />
+        <StyledButton variant="outlined" color="secondary" fullWidth>
+          Send
+        </StyledButton>
+      </StyledContent>
+    </StyledMain>
+  </>
+);
 
 export default Home;
 

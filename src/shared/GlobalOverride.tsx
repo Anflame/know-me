@@ -1,10 +1,13 @@
 import React from 'react';
 import { alpha, GlobalStyles, useTheme } from '@mui/material';
+
 import { pxToRem } from './theme';
 
 export const SCROLLBAR_SIZE = pxToRem(6);
+
 export const GlobalOverride = () => {
   const { palette } = useTheme();
+
   return (
     <GlobalStyles
       styles={{
