@@ -9,20 +9,21 @@ export const StyledContent = styled(Box)(
       spacing,
     },
   }) => ({
-    position: 'relative',
     display: 'flex',
+    position: 'relative',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
     background: main,
     padding: '70px',
-    width: '30%',
+    width: '500px',
+    maxWidth: '100%',
     borderRadius: spacing(1),
     pointerEvents: 'all',
   })
 );
 
-export const StyledContainer = styled(Box)(() => ({
+export const StyledContainer = styled(Box)({
   width: '100%',
   height: '100vh',
   position: 'relative',
@@ -31,10 +32,10 @@ export const StyledContainer = styled(Box)(() => ({
   alignItems: 'center',
   flexDirection: 'column',
   pointerEvents: 'none',
-}));
+});
 
-export const StyledIconButton = styled(IconButton)(() => ({
+export const StyledIconButton = styled(IconButton)({
   position: 'absolute',
   top: '15px',
   right: '15px',
-}));
+});

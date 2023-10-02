@@ -1,8 +1,10 @@
 import { Box, styled } from '@mui/material';
+import Image from 'next/image';
 
 export const StyledHeader = styled(Box)(() => ({
-  minHeight: '250px',
+  minHeight: '500px',
   padding: '20px',
+  position: 'relative',
   background:
     'linear-gradient(180deg, rgba(121,68,227,1) 0%, rgba(18,24,59,1) 56%, rgba(18,24,59,1) 100%)',
 }));
@@ -36,3 +38,10 @@ export const StyledContainer = styled(Box)(() => ({
   alignItems: 'center',
   flexDirection: 'column',
 }));
+
+export const StyledImage = styled(Image)({
+  display: 'block',
+  transform: 'rotate(180deg)',
+  filter: 'alpha(opacity=75)',
+  opacity: '0.2',
+});

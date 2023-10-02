@@ -9,8 +9,8 @@ import {
   customPalette,
   themeConstants,
   spacing,
-} from '../theme';
-import { MuiButtonOverride, MuiTextFieldOverride } from '../theme/components';
+} from '../../theme';
+import { MuiButtonOverride, MuiTextFieldOverride } from '../../theme/components';
 
 const baseTheme = {
   spacing,

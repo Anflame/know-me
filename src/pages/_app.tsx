@@ -4,19 +4,20 @@ import { CustomQueryClientProvider, CustomThemeProvider } from '@/shared/utils';
 import { GlobalOverride } from '@/shared/GlobalOverride';
 import { CssBaseline } from '@mui/material';
 import { Layout } from '@/components/layouts/Layout';
+import ErrorContextProvider from '@/shared/utils/Providers/ErrorContextProvider';
 
-const App: FC<AppProps> = ({ Component, pageProps }) => {
-  return (
-    <CustomThemeProvider>
-      <CustomQueryClientProvider pageProps={pageProps}>
-        <CssBaseline />
-        <GlobalOverride />
+const App: FC<AppProps> = ({ Component, pageProps }) => (
+  <CustomThemeProvider>
+    <CustomQueryClientProvider pageProps={pageProps}>
+      <CssBaseline />
+      <GlobalOverride />
+      <ErrorContextProvider>
         <Layout>
           <Component {...pageProps} />
         </Layout>
-      </CustomQueryClientProvider>
-    </CustomThemeProvider>
-  );
-};
+      </ErrorContextProvider>
+    </CustomQueryClientProvider>
+  </CustomThemeProvider>
+);
 
 export default App;

@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { Box, Container, Typography, Button, useTheme, IconButton, Modal } from '@mui/material';
 
 import { Auth } from '@/components/Auth';
-import { StyledHeader } from './styles';
+import { StyledHeader, StyledImage } from './styles';
 
 const Header: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,10 +27,11 @@ const Header: FC = () => {
 
   return (
     <StyledHeader display="flex" width="inherit" ref={rootRef}>
+      <StyledImage src="/static/header-background.jpg" fill alt="123" />
       <Container>
         <Box display="flex" justifyContent="space-between">
           <IconButton onClick={() => push('/')}>
-            <Typography variant="h5" color="white">
+            <Typography variant="h5" color="primary">
               KNOW ME
             </Typography>
           </IconButton>

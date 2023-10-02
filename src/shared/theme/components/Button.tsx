@@ -15,7 +15,6 @@ export const MuiButtonOverride: ThemeOptions['components'] = {
         ...(variant === 'outlined' && {
           border: '1px solid transparent',
           color: palette.primary.main,
-          marginTop: spacing(4),
           '&:before': {
             content: `""`,
             position: 'absolute',

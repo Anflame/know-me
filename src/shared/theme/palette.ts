@@ -33,7 +33,10 @@ export const customPalette: PaletteOptions = {
     white: white.main,
   },
   background: {
-    default: main.extra,
+    default: main.background,
     paper: main.content,
+  },
+  error: {
+    main: main.error,
   },
 };

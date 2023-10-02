@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
-import { Button, TextField } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
+import { AuthForm } from './AuthForm';
 import { StyledContainer, StyledContent, StyledIconButton } from './styles';
 
 type AuthProps = {
@@ -11,14 +11,11 @@ type AuthProps = {
 
 const Auth = forwardRef<HTMLDivElement, AuthProps>(({ isSignUp, onClose }) => (
   <StyledContainer>
-    <StyledContent display="flex">
+    <StyledContent>
       <StyledIconButton onClick={onClose}>
         <CloseIcon color="primary" />
       </StyledIconButton>
-      {isSignUp && <TextField fullWidth placeholder="example@mail.ru" />}
-      <TextField fullWidth placeholder="Your NickName" />
-      <TextField fullWidth placeholder="Your Password" />
-      <Button fullWidth>{isSignUp ? 'SIGNUP' : 'LOGIN'}</Button>
+      <AuthForm isSignUp={isSignUp} />
     </StyledContent>
   </StyledContainer>
 ));
