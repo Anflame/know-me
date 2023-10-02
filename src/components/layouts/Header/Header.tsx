@@ -26,8 +26,8 @@ const Header: FC = () => {
   const handleToggleModal = () => setIsOpen((prev) => !prev);
 
   return (
-    <StyledHeader display="flex" width="inherit" ref={rootRef}>
-      <StyledImage src="/static/header-background.jpg" fill alt="123" />
+    <StyledHeader ref={rootRef}>
+      <StyledImage src="/static/header-background.jpg" alt="123" fill />
       <Container>
         <Box display="flex" justifyContent="space-between">
           <IconButton onClick={() => push('/')}>

@@ -1,6 +1,7 @@
 import React, { FC, ReactNode } from 'react';
-import { StyledLayout, StyledMain } from './styles';
+
 import { Header } from '../Header';
+import { StyledLayout, StyledMain } from './styles';
 
 type Props = {
   children: ReactNode;

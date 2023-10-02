@@ -5,6 +5,8 @@ export const StyledHeader = styled(Box)(() => ({
   minHeight: '500px',
   padding: '20px',
   position: 'relative',
+  display: 'flex',
+  width: 'inherit',
   background:
     'linear-gradient(180deg, rgba(121,68,227,1) 0%, rgba(18,24,59,1) 56%, rgba(18,24,59,1) 100%)',
 }));
@@ -41,7 +43,6 @@ export const StyledContainer = styled(Box)(() => ({
 
 export const StyledImage = styled(Image)({
   display: 'block',
-  transform: 'rotate(180deg)',
   filter: 'alpha(opacity=75)',
   opacity: '0.2',
 });
