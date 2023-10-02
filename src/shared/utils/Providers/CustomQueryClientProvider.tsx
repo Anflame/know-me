@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
 import React, { FC, ReactNode, useState } from 'react';
 import { Hydrate, QueryClientProvider } from 'react-query';
-import factoryQueryClient from './factoryQueryClient';
+import factoryQueryClient from '../factoryQueryClient';
 
 type TCustomQueryClientProviderProps = {
   children: ReactNode;
@@ -13,6 +13,7 @@ const CustomQueryClientProvider: FC<TCustomQueryClientProviderProps> = ({
   pageProps,
 }) => {
   const [queryClient] = useState(factoryQueryClient);
+
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>{children}</Hydrate>

@@ -27,9 +27,11 @@ const white = {
 };
 
 const main = {
-  extra: '#12183b',
+  extra: '#9f0ec4',
+  background: '#0e132f',
   box: '#7944e3',
   content: white.main,
+  error: '#cf0837',
 };
 
 export { green, grey, red, white, main };
