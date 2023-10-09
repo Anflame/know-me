@@ -1,17 +1,16 @@
-import { Box, styled } from '@mui/material';
+import { Container, Stack, styled } from '@mui/material';
 import Image from 'next/image';
 
-export const StyledHeader = styled(Box)(() => ({
+export const StyledWrapper = styled(Stack)(() => ({
   minHeight: '500px',
-  padding: '20px',
+  padding: '20px 20px 0',
   position: 'relative',
-  display: 'flex',
   width: 'inherit',
   background:
     'linear-gradient(180deg, rgba(121,68,227,1) 0%, rgba(18,24,59,1) 56%, rgba(18,24,59,1) 100%)',
 }));
 
-export const StyledContent = styled(Box)(
+export const StyledContent = styled(Stack)(
   ({
     theme: {
       palette: {
@@ -20,10 +19,6 @@ export const StyledContent = styled(Box)(
       spacing,
     },
   }) => ({
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
     background: main,
     padding: '70px',
     width: '30%',
@@ -31,15 +26,11 @@ export const StyledContent = styled(Box)(
   })
 );
 
-export const StyledContainer = styled(Box)(() => ({
-  width: '100%',
-  height: '100vh',
-  position: 'relative',
+export const StyledContainer = styled(Container)({
   display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
   flexDirection: 'column',
-}));
+  alignContent: 'space-between',
+});
 
 export const StyledImage = styled(Image)({
   display: 'block',

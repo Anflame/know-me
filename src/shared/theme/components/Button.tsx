@@ -76,6 +76,7 @@ export const MuiButtonOverride: ThemeOptions['components'] = {
       }),
       text: {
         fontWeight: 300,
+        textTransform: 'uppercase',
       },
       outlined: {
         fontWeight: 300,
@@ -86,8 +87,17 @@ export const MuiButtonOverride: ThemeOptions['components'] = {
     },
     variants: [
       {
-        props: { variant: 'text' },
-        style: {},
+        props: { variant: 'ghost' },
+        style: {
+          background: 'transparent',
+          border: 'none',
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          '&:hover': {
+            background: 'transparent',
+          },
+        },
       },
     ],
   },

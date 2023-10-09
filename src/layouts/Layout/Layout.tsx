@@ -11,7 +11,7 @@ const Layout: FC<Props> = ({ children }) => {
   return (
     <StyledLayout>
       <Header />
-      <StyledMain component="main">{children}</StyledMain>
+      <StyledMain as="main">{children}</StyledMain>
     </StyledLayout>
   );
 };

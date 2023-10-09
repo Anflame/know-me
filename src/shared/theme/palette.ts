@@ -3,7 +3,7 @@ import { PaletteOptions } from '@mui/material/styles';
 import { white, grey, red, main, green } from './colors';
 
 export const base: PaletteOptions = {
-  mode: 'light',
+  mode: 'dark',
   grey,
   divider: grey[2],
   success: {
@@ -16,17 +16,20 @@ export const base: PaletteOptions = {
 
 export const customPalette: PaletteOptions = {
   primary: {
-    main: main.content,
+    main: main.main,
   },
   secondary: {
-    main: main.box,
+    main: main.alternative,
   },
   extra: {
     main: main.extra,
   },
+  negative: {
+    main: main.negative,
+  },
   text: {
-    primary: main.box,
-    secondary: main.content,
+    primary: main.main,
+    secondary: main.alternative,
   },
   common: {
     black: grey.black,
@@ -34,7 +37,7 @@ export const customPalette: PaletteOptions = {
   },
   background: {
     default: main.background,
-    paper: main.content,
+    paper: main.alternative,
   },
   error: {
     main: main.error,

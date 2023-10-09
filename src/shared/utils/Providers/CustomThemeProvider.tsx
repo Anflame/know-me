@@ -1,16 +1,12 @@
 import { FC } from 'react';
 import { createTheme, ThemeOptions, ThemeProvider } from '@mui/material/styles';
 
+import { base, border, borderRadius, customPalette, themeConstants, spacing } from '../../theme';
 import {
-  breakpoints,
-  base,
-  border,
-  borderRadius,
-  customPalette,
-  themeConstants,
-  spacing,
-} from '../../theme';
-import { MuiButtonOverride, MuiTextFieldOverride } from '../../theme/components';
+  MuiButtonOverride,
+  MuiTextFieldOverride,
+  MuiIconButtonOverride,
+} from '../../theme/components';
 
 const baseTheme = {
   spacing,
@@ -20,13 +16,13 @@ const baseTheme = {
   },
   border,
   constants: themeConstants,
-  breakpoints,
 };
 
 const componentsOverride: ThemeOptions['components'] = {
   // MuiCssBaseline: {
   //   styleOverrides: normalizedFontFaces.join('\n'),
   // },
+  ...MuiIconButtonOverride,
   ...MuiButtonOverride,
   ...MuiTextFieldOverride,
 };

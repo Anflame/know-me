@@ -26,11 +26,7 @@ const ErrorContextProvider: FC<IErrorContextProvider> = ({ children }) => {
     >
       {children}
       <Slide direction="right" in={!!message}>
-        <StyledAlert
-          severity="error"
-          style={{ position: 'absolute', bottom: 0, left: 0, zIndex: '1300' }}
-          onClose={() => setMessage('')}
-        >
+        <StyledAlert severity="error" onClose={() => setMessage('')}>
           <AlertTitle>Ошибка</AlertTitle>
           {message}
         </StyledAlert>
@@ -42,6 +38,10 @@ const ErrorContextProvider: FC<IErrorContextProvider> = ({ children }) => {
 export default ErrorContextProvider;
 
 const StyledAlert = styled(Alert)(({ theme: { palette } }) => ({
+  position: 'fixed',
+  bottom: 0,
+  left: 0,
+  zIndex: '1300',
   background: palette.error.main,
   color: palette.primary.main,
   [`& .${alertClasses.icon}`]: {

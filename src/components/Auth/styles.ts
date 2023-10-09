@@ -1,6 +1,6 @@
-import { Box, IconButton, styled } from '@mui/material';
+import { IconButton, Stack, styled } from '@mui/material';
 
-export const StyledContent = styled(Box)(
+export const StyledContent = styled(Stack)(
   ({
     theme: {
       palette: {
@@ -9,30 +9,16 @@ export const StyledContent = styled(Box)(
       spacing,
     },
   }) => ({
-    display: 'flex',
     position: 'relative',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
     background: main,
     padding: '70px',
     width: '500px',
     maxWidth: '100%',
     borderRadius: spacing(1),
     pointerEvents: 'all',
+    zIndex: '10',
   })
 );
-
-export const StyledContainer = styled(Box)({
-  width: '100%',
-  height: '100vh',
-  position: 'relative',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  flexDirection: 'column',
-  pointerEvents: 'none',
-});
 
 export const StyledIconButton = styled(IconButton)({
   position: 'absolute',

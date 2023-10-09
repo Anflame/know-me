@@ -6,14 +6,14 @@ export const MuiTextFieldOverride: ThemeOptions['components'] = {
       variant: 'standard',
     },
     styleOverrides: {
-      root: ({ theme: { palette, spacing }, ownerState: { variant } }) => ({
+      root: ({ theme: { palette, spacing }, ownerState: { variant, color } }) => ({
         fontSize: '1.125rem',
         lineHeight: '1.625rem',
         textAlign: 'center',
         textTransform: 'none',
 
         ...(variant === 'standard' && {
-          input: {
+          label: {
             color: palette.primary.main,
           },
           '&:not(:first-of-type)': {
@@ -21,15 +21,21 @@ export const MuiTextFieldOverride: ThemeOptions['components'] = {
           },
           [`& .${inputBaseClasses.root}`]: {
             '&:before': {
-              borderBottom: `1px solid ${palette.grey[2]}`,
+              borderBottom: `1px solid ${
+                color === 'primary' ? palette.grey[2] : palette[color!].main
+              }`,
             },
             '&:hover:before': {
-              borderBottom: `2px solid ${palette.grey[2]} !important`,
+              borderBottom: `2px solid ${
+                color === 'primary' ? palette.grey[2] : palette[color!].main
+              } !important`,
             },
           },
           [`&:hover .${inputBaseClasses.root}`]: {
             '&:before': {
-              borderBottom: `1px solid ${palette.primary.main}`,
+              borderBottom: `1px solid ${
+                color === 'primary' ? palette.primary.main : palette[color!].main
+              }`,
             },
           },
         }),

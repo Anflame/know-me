@@ -1,12 +1,26 @@
-import Head from 'next/head';
+import { Container } from '@mui/material';
 import { NextPage } from 'next';
+import Head from 'next/head';
+
+import Card from '@/components/CategoryCard/CategoryCard';
+import { CustomList } from '@/ui-components/';
+import { categories } from '@/constants/categories';
 
 const Home: NextPage = () => (
-  <Head>
-    <title>Know-me</title>
-    <meta name="description" content="Know-me" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </Head>
+  <>
+    <Head>
+      <title>Know-me</title>
+      <meta name="description" content="Know-me" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </Head>
+    <Container>
+      <CustomList view="Grid">
+        {categories.map(({ id, ...item }) => (
+          <Card key={id} {...item} />
+        ))}
+      </CustomList>
+    </Container>
+  </>
 );
 
 export default Home;

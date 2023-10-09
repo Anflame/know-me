@@ -12,13 +12,14 @@ declare module '@mui/material/styles' {
   }
   interface CommonColors {
     black: string;
-    white: string;
+    white: { [key: string]: string };
     base: string;
   }
 }
 
 declare module '@mui/material' {
   interface Color {
+    main?: string;
     [1]?: string;
     [2]?: string;
     [3]?: string;
@@ -39,10 +40,22 @@ declare module '@mui/material' {
     extra?: {
       main: string;
     };
+    negative?: {
+      main: string;
+    };
   }
   interface PaletteOptions {
     extra?: {
       main: string;
     };
+    negative?: {
+      main: string;
+    };
+  }
+}
+
+declare module '@mui/material/Button' {
+  interface ButtonPropsVariantOverrides {
+    ghost: true;
   }
 }

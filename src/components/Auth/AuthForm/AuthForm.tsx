@@ -1,13 +1,17 @@
-import React, { FC, useContext } from 'react';
-import FormTextField from '@/components/formElements/FormTextField';
+import React, { FC, useContext, useState } from 'react';
+import { IconButton, InputAdornment, Stack } from '@mui/material';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm, FieldErrors } from 'react-hook-form';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
+import { FormTextField } from '@/ui-components';
 import { authType, logInScheme, signUpScheme } from '@/shared/utils';
 import { ErrorContext } from '@/shared/utils/errorContext';
-import { StyledButton, StyledForm } from './styles';
+
 import { useAuth } from './hooks';
-import { ILoginForm, ISignUpForm } from './types';
+import type { ILoginForm, ISignUpForm } from './types';
+import { StyledButton } from './styles';
 
 interface IAuthFormProps {
   isSignUp: boolean;
@@ -33,10 +37,18 @@ const AuthForm: FC<IAuthFormProps> = ({ isSignUp }) => {
     resolver: yupResolver<ILoginForm | ISignUpForm>(isSignUp ? signUpScheme : logInScheme),
   });
 
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+  };
+
   const { handleAuth, isLoading } = useAuth(isSignUp, showError);
 
   return (
-    <StyledForm as="form" onSubmit={handleSubmit(handleAuth)}>
+    <Stack component="form" onSubmit={handleSubmit(handleAuth)} width="100%">
       <FormTextField
         control={control}
         name="email"
@@ -62,15 +74,27 @@ const AuthForm: FC<IAuthFormProps> = ({ isSignUp }) => {
         name="password"
         label="Password"
         placeholder="Password123"
-        type="password"
         fullWidth
         isError={!!errors.password}
-        errorMessage={errors.password?.message}
+        type={showPassword ? 'text' : 'password'}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <IconButton
+                aria-label="toggle password visibility"
+                onClick={handleClickShowPassword}
+                onMouseDown={handleMouseDownPassword}
+              >
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
+            </InputAdornment>
+          ),
+        }}
       />
       <StyledButton fullWidth type="submit" disabled={isLoading}>
         {isSignUp ? 'SIGNUP' : 'LOGIN'}
       </StyledButton>
-    </StyledForm>
+    </Stack>
   );
 };
 
