@@ -1,7 +1,7 @@
 import React, { FC, useContext, useState } from 'react';
-import { IconButton, InputAdornment, Stack } from '@mui/material';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm, FieldErrors } from 'react-hook-form';
+import { IconButton, InputAdornment, Stack } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
@@ -92,7 +92,7 @@ const AuthForm: FC<IAuthFormProps> = ({ isSignUp }) => {
         }}
       />
       <StyledButton fullWidth type="submit" disabled={isLoading}>
-        {isSignUp ? 'SIGNUP' : 'LOGIN'}
+        {isSignUp ? 'signUp' : 'login'}
       </StyledButton>
     </Stack>
   );

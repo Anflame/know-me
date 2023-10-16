@@ -10,7 +10,7 @@ export interface ThemeBorder {
 }
 
 export const border: ThemeBorder = {
-  default: `1px solid ${main.content}`,
+  default: `1px solid ${main.alternative}`,
   error: `1px solid ${red.alert}`,
   solid: [
     '0px solid',

@@ -1,8 +1,8 @@
-import { Container } from '@mui/material';
 import { NextPage } from 'next';
 import Head from 'next/head';
+import { Container } from '@mui/material';
 
-import Card from '@/components/CategoryCard/CategoryCard';
+import { CategoryCard } from '@/components/CategoryCard';
 import { CustomList } from '@/ui-components/';
 import { categories } from '@/constants/categories';
 
@@ -16,7 +16,7 @@ const Home: NextPage = () => (
     <Container>
       <CustomList view="Grid">
         {categories.map(({ id, ...item }) => (
-          <Card key={id} {...item} />
+          <CategoryCard key={id} {...item} />
         ))}
       </CustomList>
     </Container>

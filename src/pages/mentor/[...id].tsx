@@ -6,6 +6,7 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const paramsId = params?.id;
 
+  // TODO: выпилить когда будет апи
   const mentor = paramsId ? mentors.filter(({ id }) => +paramsId === id)[0] : undefined;
 
   return {
@@ -13,8 +14,8 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   };
 };
 
-const MentorPage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ mentor }) => {
-  return <Mentor {...mentor} />;
-};
+const MentorPage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ mentor }) => (
+  <Mentor {...mentor} />
+);
 
 export default MentorPage;

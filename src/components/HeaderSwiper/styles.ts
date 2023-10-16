@@ -1,4 +1,5 @@
-import { styled, Box } from '@mui/material';
+import { styled, Box, Stack } from '@mui/material';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 export const StyledSwiperContainer = styled(Box)(({ theme: { palette, spacing } }) => ({
   position: 'relative',
@@ -47,4 +48,25 @@ export const StyledSwiperContainer = styled(Box)(({ theme: { palette, spacing } 
       opacity: '0.7',
     },
   },
+}));
+
+export const StyledArrowIcon = styled(ArrowBackIosNewIcon)<{ rotate?: number }>(
+  ({ rotate, theme: { palette } }) => ({
+    height: 'inherit',
+    width: '100%',
+    fill: palette.grey[500],
+    ...(rotate && {
+      transform: `rotate(${rotate}deg)`,
+    }),
+  })
+);
+
+export const StyledNavigationWrapper = styled(Stack)(({ theme: { spacing } }) => ({
+  flexDirection: 'row',
+  position: 'absolute',
+  top: `calc(50% - ${spacing(7)})`,
+  height: spacing(7),
+  width: '100%',
+  justifyContent: 'space-between',
+  zIndex: 11,
 }));

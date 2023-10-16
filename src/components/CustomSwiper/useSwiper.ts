@@ -5,7 +5,7 @@ import type { IRefsSwiper } from './types';
 const isRefObject = <T>(ref?: MutableRefObject<T>) => typeof ref === 'object' && ref;
 const isReadyRef = <T>(ref?: MutableRefObject<T>) => (isRefObject(ref) ? ref?.current : true);
 
-const useSwiper = (refs: Partial<IRefsSwiper>) => {
+export const useSwiper = (refs: Partial<IRefsSwiper>) => {
   const { next, prev, pagination: paginationRef } = refs;
 
   const [isInit, setIsInit] = useState(false);
@@ -34,5 +34,3 @@ const useSwiper = (refs: Partial<IRefsSwiper>) => {
     paginationOptions,
   };
 };
-
-export default useSwiper;

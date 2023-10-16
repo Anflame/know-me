@@ -1,5 +1,6 @@
 import { Box, Stack, Typography, styled } from '@mui/material';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const StyledWrapper = styled(Box)(({ theme: { palette, spacing } }) => ({
   position: 'relative',
@@ -14,7 +15,7 @@ export const StyledWrapper = styled(Box)(({ theme: { palette, spacing } }) => ({
   transform: `translateY(${spacing(0)})`,
   transition: 'all 0.3s',
 
-  [`&:hover`]: {
+  '&:hover': {
     transform: `translateY(-${spacing(1)})`,
     boxShadow: `5px 5px 5px ${palette.secondary.main}`,
   },
@@ -39,3 +40,8 @@ export const StyledImage = styled(Image)(({ theme: { spacing } }) => ({
   borderRadius: spacing(2),
   opacity: '0.4',
 }));
+
+export const StyledLink = styled(Link)({
+  color: 'white',
+  textDecoration: 'none',
+});

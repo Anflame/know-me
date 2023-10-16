@@ -10,7 +10,7 @@ export const MuiButtonOverride: ThemeOptions['components'] = {
         fontSize: '1rem',
         lineHeight: '1.625rem',
         textAlign: 'center',
-        textTransform: 'none',
+        textTransform: 'uppercase',
 
         ...(variant === 'outlined' && {
           border: '1px solid transparent',

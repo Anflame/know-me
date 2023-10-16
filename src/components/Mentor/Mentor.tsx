@@ -1,38 +1,38 @@
 import { FC } from 'react';
-import { Container, Typography, IconButton, Stack, useTheme, Box } from '@mui/material';
+import { Container, Typography, Stack, Box, useTheme } from '@mui/material';
 import StarRateIcon from '@mui/icons-material/StarRate';
-import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
-import MessageIcon from '@mui/icons-material/Message';
 
-import type { IMentor } from '@/types';
+import type { IMentorCard } from '@/types';
 import { SkillsList } from '@/components/SkillsList';
 
 import { StyledImage } from './styles';
+import { CommunicationPanel } from '../CommunicationPanel';
 
-const Mentor: FC<IMentor> = ({ alt, description, image, name, skills, rating }) => {
+const Mentor: FC<IMentorCard> = ({
+  alt,
+  description,
+  image,
+  skills,
+  title,
+  user: { name, rating },
+}) => {
   const { spacing } = useTheme();
 
   return (
-    <Stack padding={`${spacing(5)} 0`}>
+    <Stack p={`${spacing(8)} 0`}>
       <Container>
-        <Stack flexDirection="row">
+        <Stack flexDirection="row" position="relative">
           <StyledImage src={`/static/${image}`} alt={alt} width={200} height={300} />
           <Stack padding={spacing(2)}>
             <Box>
-              <Stack flexDirection="row">
-                <Typography variant="h4">{name}</Typography>
-                <IconButton>
-                  <PhoneEnabledIcon color="success" />
-                </IconButton>
-                <IconButton>
-                  <MessageIcon color="success" />
-                </IconButton>
-              </Stack>
-              <Stack flexDirection="row">
-                <Typography variant="body2">{rating}</Typography>
+              <Typography variant="h4">{title}</Typography>
+              <Stack flexDirection="row" gap={spacing(1)} alignItems="center">
+                <Typography variant="h6">{name}</Typography>
+                <Typography variant="h6">{rating}</Typography>
                 <StarRateIcon fontSize="inherit" color="warning" />
+                <CommunicationPanel callLink="/" messageLink="/" />
               </Stack>
-              <SkillsList skills={skills} />
+              <SkillsList skills={skills} variant="Page" />
             </Box>
             <Typography component="p" mt="50px">
               {description}

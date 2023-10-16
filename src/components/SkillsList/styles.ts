@@ -1,10 +1,15 @@
 import { Stack, Box, styled } from '@mui/material';
+import { SkillsVariants } from './types';
 
-export const StyledSkillsList = styled(Stack)({
-  flexDirection: 'row',
-  gap: '5px',
-  marginTop: '5px',
-});
+export const StyledSkillsList = styled(Stack)<{ variant?: keyof typeof SkillsVariants }>(
+  ({ theme: { spacing }, variant }) => ({
+    flexDirection: 'row',
+    gap: spacing(0.5),
+    position: variant === 'Listing' ? 'absolute' : 'static',
+    marginTop: variant === 'Page' ? spacing(2) : 0,
+    bottom: spacing(1),
+  })
+);
 
 export const StyledSkillWrapp = styled(Box)(
   ({
@@ -16,6 +21,5 @@ export const StyledSkillWrapp = styled(Box)(
     background: extra?.main,
     borderRadius: spacing(1),
     padding: '4px',
-    justifySelf: 'flex-end',
   })
 );

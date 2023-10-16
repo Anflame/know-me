@@ -4,8 +4,8 @@ import type { PaginationOptions } from 'swiper/types';
 
 import 'swiper/css';
 
-import useSwiper from './useSwiper';
-import { IRefsSwiper } from './types';
+import { useSwiper } from './useSwiper';
+import type { IRefsSwiper } from './types';
 
 interface ICustomSwiperProps extends SwiperProps {
   refs?: Partial<IRefsSwiper>;

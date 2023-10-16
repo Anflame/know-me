@@ -2,6 +2,7 @@ export interface ICategory {
   id: number;
   title: string;
   description: string;
-  icon: string;
+  slug: string;
+  image: string;
   alt: string;
 }

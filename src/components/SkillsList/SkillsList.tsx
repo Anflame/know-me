@@ -1,19 +1,23 @@
 import { FC } from 'react';
 import { Typography } from '@mui/material';
 
+import type { ISkill } from '@/types';
+
 import { StyledSkillWrapp, StyledSkillsList } from './styles';
+import { SkillsVariants } from './types';
 
 interface ISkillsListProps {
-  skills: Array<string>;
+  skills: ISkill[];
+  variant?: keyof typeof SkillsVariants;
 }
 
-const SkillsList: FC<ISkillsListProps> = ({ skills }) => {
+const SkillsList: FC<ISkillsListProps> = ({ skills, variant = 'Listing' }) => {
   return (
-    <StyledSkillsList>
-      {skills.map((item, index) => (
-        <StyledSkillWrapp key={index}>
+    <StyledSkillsList variant={variant}>
+      {skills.map(({ title, id }) => (
+        <StyledSkillWrapp key={id}>
           <Typography variant="body2" color="primary">
-            {item}
+            {title}
           </Typography>
         </StyledSkillWrapp>
       ))}

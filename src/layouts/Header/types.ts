@@ -1,4 +1,6 @@
 export enum IsSignUp {
-  Signup = 'true',
-  Login = 'false',
+  SignUp = 'signUp',
+  Login = 'login',
 }
+
+export const { SignUp, Login } = IsSignUp;

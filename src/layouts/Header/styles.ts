@@ -1,4 +1,4 @@
-import { Container, Stack, styled } from '@mui/material';
+import { Container, IconButton, Stack, styled } from '@mui/material';
 import Image from 'next/image';
 
 export const StyledWrapper = styled(Stack)(() => ({
@@ -37,3 +37,16 @@ export const StyledImage = styled(Image)({
   filter: 'alpha(opacity=75)',
   opacity: '0.2',
 });
+
+export const StyledPanelsWrapper = styled(Stack)(({ theme: { spacing } }) => ({
+  flexDirection: 'row',
+  justifyContent: 'center',
+  marginTop: spacing(8),
+  position: 'relative',
+}));
+
+export const StyledIconButton = styled(IconButton)(({ theme: { spacing } }) => ({
+  position: 'absolute',
+  left: 0,
+  gap: spacing(1),
+}));

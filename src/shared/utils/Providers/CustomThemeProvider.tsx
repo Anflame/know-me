@@ -6,6 +6,7 @@ import {
   MuiButtonOverride,
   MuiTextFieldOverride,
   MuiIconButtonOverride,
+  MuiAccordionOverride,
 } from '../../theme/components';
 
 const baseTheme = {
@@ -22,6 +23,7 @@ const componentsOverride: ThemeOptions['components'] = {
   // MuiCssBaseline: {
   //   styleOverrides: normalizedFontFaces.join('\n'),
   // },
+  ...MuiAccordionOverride,
   ...MuiIconButtonOverride,
   ...MuiButtonOverride,
   ...MuiTextFieldOverride,

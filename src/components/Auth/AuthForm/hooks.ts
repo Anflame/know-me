@@ -4,6 +4,7 @@ import { AxiosError } from 'axios';
 import { setCookie } from 'cookies-next';
 
 import type { IAuthConfig } from '@/types';
+
 import type { ILoginForm, ISignUpForm } from './types';
 
 export const useAuth = (isSignUp: boolean, showError?: (error: string) => void) => {

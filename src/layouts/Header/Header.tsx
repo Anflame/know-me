@@ -1,15 +1,25 @@
 import React, { FC, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Typography, Button, useTheme, IconButton, Modal, Stack } from '@mui/material';
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 
 import { Auth } from '@/components/Auth';
 import { HeaderSwiper } from '@/components/HeaderSwiper';
 import { MentorCard } from '@/components/MentorCard';
 import { mentors } from '@/constants/mentors';
-
 import { SearchPanel } from '@/components/SearchPanel';
-import { IsSignUp } from './types';
-import { StyledContainer, StyledWrapper, StyledImage } from './styles';
+import { FilterPanel } from '@/components/FilterPanel';
+
+import { filters } from '@/constants/filters';
+import { IsSignUp, Login, SignUp } from './types';
+import {
+  StyledContainer,
+  StyledWrapper,
+  StyledImage,
+  StyledPanelsWrapper,
+  StyledIconButton,
+} from './styles';
+import { getIsSignUp } from './utils';
 
 const Header: FC = () => {
   const rootRef = useRef(null);
@@ -18,10 +28,10 @@ const Header: FC = () => {
 
   const { spacing } = useTheme();
 
-  const { push } = useRouter();
+  const { push, back, pathname } = useRouter();
 
-  const handleAuth = (type: keyof typeof IsSignUp) => {
-    setIsSignUp(JSON.parse(IsSignUp[type]));
+  const handleAuth = (type: IsSignUp) => {
+    setIsSignUp(getIsSignUp(type));
     handleToggleModal();
   };
 
@@ -38,11 +48,11 @@ const Header: FC = () => {
             </Typography>
           </IconButton>
           <Stack flexDirection="row" gap={spacing(3)}>
-            <Button variant="text" onClick={() => handleAuth('Login')}>
-              login
+            <Button variant="text" onClick={() => handleAuth(SignUp)}>
+              <Typography>login</Typography>
             </Button>
-            <Button variant="text" onClick={() => handleAuth('Signup')}>
-              signUp
+            <Button variant="text" onClick={() => handleAuth(Login)}>
+              <Typography>signup</Typography>
             </Button>
           </Stack>
         </Stack>
@@ -51,7 +61,19 @@ const Header: FC = () => {
             <MentorCard key={item.id} {...item} variant="Swiper" />
           ))}
         </HeaderSwiper>
-        <SearchPanel />
+        <StyledPanelsWrapper>
+          {pathname !== '/mentor/[...id]' ? (
+            <>
+              <FilterPanel filterGroups={filters} />
+              <SearchPanel />
+            </>
+          ) : (
+            <StyledIconButton onClick={() => back()}>
+              <KeyboardDoubleArrowLeftIcon />
+              <Typography>Назад</Typography>
+            </StyledIconButton>
+          )}
+        </StyledPanelsWrapper>
       </StyledContainer>
       <Modal
         open={isOpen}

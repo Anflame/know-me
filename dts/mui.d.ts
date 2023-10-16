@@ -59,3 +59,9 @@ declare module '@mui/material/Button' {
     ghost: true;
   }
 }
+
+declare module '@mui/material/Paper' {
+  interface PaperPropsVariantOverrides {
+    filters: true;
+  }
+}

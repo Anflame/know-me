@@ -7,9 +7,12 @@ export const MuiIconButtonOverride: ThemeOptions['components'] = {
         height: 'inherit',
         '&:hover': {
           background: 'transparent',
-        },
-        '& svg:hover': {
-          filter: 'brightness(1.5)',
+          p: {
+            filter: 'brightness(1.5)',
+          },
+          svg: {
+            filter: 'brightness(1.5)',
+          },
         },
       },
     },
