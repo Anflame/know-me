@@ -1,4 +1,4 @@
-import { Container, IconButton, Stack, styled } from '@mui/material';
+import { Container, Stack, styled } from '@mui/material';
 import Image from 'next/image';
 
 export const StyledWrapper = styled(Stack)(() => ({
@@ -43,10 +43,4 @@ export const StyledPanelsWrapper = styled(Stack)(({ theme: { spacing } }) => ({
   justifyContent: 'center',
   marginTop: spacing(8),
   position: 'relative',
-}));
-
-export const StyledIconButton = styled(IconButton)(({ theme: { spacing } }) => ({
-  position: 'absolute',
-  left: 0,
-  gap: spacing(1),
 }));

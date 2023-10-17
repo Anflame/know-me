@@ -1,7 +1,7 @@
 import { styled, Stack } from '@mui/material';
-import Image from 'next/image';
 
 import { MentorCardVariant } from './types';
+import { CustomImage } from '../CustomImage';
 
 interface IMentorCardVariant {
   variant: keyof typeof MentorCardVariant;
@@ -19,13 +19,15 @@ export const StyledWrapper = styled(Stack)<IMentorCardVariant>(
   })
 );
 
-export const StyledImage = styled(Image)<IMentorCardVariant>(({ theme: { spacing }, variant }) => ({
-  borderTopLeftRadius: spacing(2),
-  borderTopRightRadius: variant === 'FullWidth' ? 0 : spacing(2),
-  borderBottomRightRadius: variant === 'FullWidth' ? 0 : spacing(2),
-  borderBottomLeftRadius: spacing(2),
-  width: '200%',
-  height: 'inherit',
-  objectFit: variant === 'FullWidth' ? 'contain' : 'cover',
-  objectPosition: variant === 'FullWidth' ? 'left' : 'top',
-}));
+export const StyledImage = styled(CustomImage)<IMentorCardVariant>(
+  ({ theme: { spacing }, variant }) => ({
+    borderTopLeftRadius: spacing(2),
+    borderTopRightRadius: variant === 'FullWidth' ? 0 : spacing(2),
+    borderBottomRightRadius: variant === 'FullWidth' ? 0 : spacing(2),
+    borderBottomLeftRadius: spacing(2),
+    width: '200%',
+    height: 'inherit',
+    objectFit: variant === 'FullWidth' ? 'contain' : 'cover',
+    objectPosition: variant === 'FullWidth' ? 'left' : 'top',
+  })
+);

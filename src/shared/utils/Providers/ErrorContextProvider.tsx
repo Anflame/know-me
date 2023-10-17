@@ -3,27 +3,27 @@ import { Alert, AlertTitle, Slide, alertClasses, styled } from '@mui/material';
 
 import { ErrorContext, defaultErrorContext } from '../errorContext';
 
-interface IErrorContextProvider {
+interface IErrorContextProviderProps {
   children: ReactNode;
 }
 
-const ErrorContextProvider: FC<IErrorContextProvider> = ({ children }) => {
+const ErrorContextProvider: FC<IErrorContextProviderProps> = ({ children }) => {
   const [message, setMessage] = useState(defaultErrorContext.message);
 
   const showError = useCallback((newMessage: string) => {
     setMessage(newMessage);
   }, []);
 
+  const contextProviderValue = useMemo(
+    () => ({
+      message,
+      showError,
+    }),
+    [message, showError]
+  );
+
   return (
-    <ErrorContext.Provider
-      value={useMemo(
-        () => ({
-          message,
-          showError,
-        }),
-        [message, showError]
-      )}
-    >
+    <ErrorContext.Provider value={contextProviderValue}>
       {children}
       <Slide direction="right" in={!!message}>
         <StyledAlert severity="error" onClose={() => setMessage('')}>

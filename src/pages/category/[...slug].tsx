@@ -10,6 +10,7 @@ export const getServerSideProps: GetServerSideProps<{
   mentors: IMentorCard[];
   title: string | null;
 }> = async ({ params }) => {
+  // TODO: выпилить когда появиться апи
   const paramsSlug = params?.slug?.[0];
 
   const category = mentors.filter(({ group }) => paramsSlug === group);

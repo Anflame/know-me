@@ -1,6 +1,6 @@
 import { PaletteOptions } from '@mui/material/styles';
 
-import { white, grey, red, main, green } from './colors';
+import { white, grey, red, main, green, yellow } from './colors';
 
 export const base: PaletteOptions = {
   mode: 'dark',
@@ -11,6 +11,9 @@ export const base: PaletteOptions = {
   },
   error: {
     main: red.alert,
+  },
+  warning: {
+    main: yellow.warning,
   },
 };
 

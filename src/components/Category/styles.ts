@@ -1,4 +1,4 @@
-import { IconButton, Stack, styled } from '@mui/material';
+import { Stack, styled } from '@mui/material';
 
 export const StyledTitleWrapper = styled(Stack)(({ theme: { spacing, typography } }) => ({
   margin: '0 auto',
@@ -16,8 +16,3 @@ export const StyledTitleWrapper = styled(Stack)(({ theme: { spacing, typography 
   background: 'linear-gradient(0deg, rgba(60,1,143,1) 0%, rgba(14,19,47,1) 70%)',
   maxWidth: '40%',
 }));
-
-export const StyledIconButton = styled(IconButton)({
-  position: 'absolute',
-  left: '0',
-});

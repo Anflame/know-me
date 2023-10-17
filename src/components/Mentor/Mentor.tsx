@@ -5,7 +5,7 @@ import StarRateIcon from '@mui/icons-material/StarRate';
 import type { IMentorCard } from '@/types';
 import { SkillsList } from '@/components/SkillsList';
 
-import { StyledImage } from './styles';
+import { StyledImage, StyledImageWrapper } from './styles';
 import { CommunicationPanel } from '../CommunicationPanel';
 
 const Mentor: FC<IMentorCard> = ({
@@ -22,7 +22,9 @@ const Mentor: FC<IMentorCard> = ({
     <Stack p={`${spacing(8)} 0`}>
       <Container>
         <Stack flexDirection="row" position="relative">
-          <StyledImage src={`/static/${image}`} alt={alt} width={200} height={300} />
+          <StyledImageWrapper>
+            <StyledImage src={`/static/${image}`} alt={alt} fill sizes="100%" />
+          </StyledImageWrapper>
           <Stack padding={spacing(2)}>
             <Box>
               <Typography variant="h4">{title}</Typography>

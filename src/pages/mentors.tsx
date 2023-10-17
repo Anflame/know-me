@@ -1,12 +1,9 @@
 import { FC } from 'react';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
-import { Container } from '@mui/material';
-// import { useSearchParams } from 'next/navigation';
 
-import { CustomList } from '@/ui-components';
 import { mentors } from '@/constants/mentors';
-import { MentorCard } from '@/components/MentorCard';
 import { IMentorCard, IUser } from '@/types';
+import { MentorList } from '@/components/MentorList';
 
 interface IPropMentorCard {
   propMentors: IMentorCard[];
@@ -56,13 +53,7 @@ export const getServerSideProps: GetServerSideProps<IPropMentorCard> = async ({ 
 };
 
 const Mentors: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ propMentors }) => (
-  <Container>
-    <CustomList view="Grid">
-      {propMentors.map((item) => (
-        <MentorCard variant="FullWidth" key={item.id} {...item} />
-      ))}
-    </CustomList>
-  </Container>
+  <MentorList propMentors={propMentors} />
 );
 
 export default Mentors;

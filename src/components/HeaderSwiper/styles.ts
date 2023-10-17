@@ -54,6 +54,7 @@ export const StyledArrowIcon = styled(ArrowBackIosNewIcon)<{ rotate?: number }>(
   ({ rotate, theme: { palette } }) => ({
     height: 'inherit',
     width: '100%',
+    pointerEvents: 'all',
     fill: palette.grey[500],
     ...(rotate && {
       transform: `rotate(${rotate}deg)`,
@@ -68,5 +69,6 @@ export const StyledNavigationWrapper = styled(Stack)(({ theme: { spacing } }) =>
   height: spacing(7),
   width: '100%',
   justifyContent: 'space-between',
+  pointerEvents: 'none',
   zIndex: 11,
 }));

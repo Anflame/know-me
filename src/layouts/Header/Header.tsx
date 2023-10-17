@@ -1,7 +1,6 @@
 import React, { FC, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
-import { Typography, Button, useTheme, IconButton, Modal, Stack } from '@mui/material';
-import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
+import { Typography, Button, useTheme, IconButton, Modal, Stack, Box } from '@mui/material';
 
 import { Auth } from '@/components/Auth';
 import { HeaderSwiper } from '@/components/HeaderSwiper';
@@ -11,14 +10,9 @@ import { SearchPanel } from '@/components/SearchPanel';
 import { FilterPanel } from '@/components/FilterPanel';
 
 import { filters } from '@/constants/filters';
+import { BackLink } from '@/components/BackLink';
 import { IsSignUp, Login, SignUp } from './types';
-import {
-  StyledContainer,
-  StyledWrapper,
-  StyledImage,
-  StyledPanelsWrapper,
-  StyledIconButton,
-} from './styles';
+import { StyledContainer, StyledWrapper, StyledImage, StyledPanelsWrapper } from './styles';
 import { getIsSignUp } from './utils';
 
 const Header: FC = () => {
@@ -28,7 +22,7 @@ const Header: FC = () => {
 
   const { spacing } = useTheme();
 
-  const { push, back, pathname } = useRouter();
+  const { push, pathname } = useRouter();
 
   const handleAuth = (type: IsSignUp) => {
     setIsSignUp(getIsSignUp(type));
@@ -68,10 +62,9 @@ const Header: FC = () => {
               <SearchPanel />
             </>
           ) : (
-            <StyledIconButton onClick={() => back()}>
-              <KeyboardDoubleArrowLeftIcon />
-              <Typography>Назад</Typography>
-            </StyledIconButton>
+            <Box position="relative" width="100%">
+              <BackLink />
+            </Box>
           )}
         </StyledPanelsWrapper>
       </StyledContainer>

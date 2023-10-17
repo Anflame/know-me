@@ -1,15 +1,16 @@
 import { Box, Stack, Typography, styled } from '@mui/material';
-import Image from 'next/image';
 import Link from 'next/link';
+
+import { CustomImage } from '../CustomImage';
 
 export const StyledWrapper = styled(Box)(({ theme: { palette, spacing } }) => ({
   position: 'relative',
   border: `1px solid ${palette.secondary.main}`,
   cursor: 'pointer',
-  borderRadius: '10px',
-  padding: spacing(2),
   width: 'inherit',
   height: 'inherit',
+  borderRadius: '10px',
+  padding: spacing(2),
   aspectRatio: '500/400',
   boxShadow: `0px 0px 0px ${palette.secondary.main}`,
   transform: `translateY(${spacing(0)})`,
@@ -36,10 +37,9 @@ export const StyledDescription = styled(Typography)({
   width: '50%',
 });
 
-export const StyledImage = styled(Image)(({ theme: { spacing } }) => ({
-  borderRadius: spacing(2),
-  opacity: '0.4',
-}));
+export const StyledImage = styled(CustomImage)({
+  filter: 'opacity(25%)',
+});
 
 export const StyledLink = styled(Link)({
   color: 'white',

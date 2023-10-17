@@ -3,7 +3,7 @@ import { Typography } from '@mui/material';
 
 import type { ICategory } from '@/types';
 
-import { StyledWrapper, StyledContent, StyledDescription, StyledImage, StyledLink } from './styles';
+import { StyledWrapper, StyledContent, StyledDescription, StyledLink, StyledImage } from './styles';
 
 const CategoryCard: FC<Omit<ICategory, 'id'>> = ({ description, title, slug, image, alt }) => (
   <StyledLink href={`/category/${slug}`} scroll={false}>

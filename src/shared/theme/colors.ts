@@ -4,6 +4,10 @@ const green = {
   success: '#82CF67',
 };
 
+const yellow = {
+  warning: '#ffda0b',
+};
+
 const red = {
   alert: '#FF2D55',
 };
@@ -35,4 +39,4 @@ const grey = {
   black: '#000000',
 };
 
-export { green, grey, red, white, main };
+export { green, grey, red, white, main, yellow };
