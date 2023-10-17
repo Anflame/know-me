@@ -12,9 +12,6 @@ export const GlobalOverride = () => {
     <GlobalStyles
       styles={{
         html: {
-          '& > body': {
-            overflow: 'hidden',
-          },
           '*::-webkit-scrollbar': {
             width: SCROLLBAR_SIZE,
             height: SCROLLBAR_SIZE,
@@ -23,9 +20,9 @@ export const GlobalOverride = () => {
             },
             '&-thumb': {
               borderRadius: 8,
-              backgroundColor: alpha(palette.text.secondary, 0.5),
+              backgroundColor: alpha(palette.secondary.main, 0.5),
               '&:hover': {
-                backgroundColor: alpha(palette.text.secondary, 1),
+                backgroundColor: alpha(palette.secondary.main, 1),
               },
             },
           },
