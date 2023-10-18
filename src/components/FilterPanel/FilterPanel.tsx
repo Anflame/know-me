@@ -21,7 +21,10 @@ export interface IFilterPanelProps {
 const FilterPanel: FC<IFilterPanelProps> = ({ filterGroups }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { spacing } = useTheme();
-  const { changeSelectFilter, selectableFilters, handleFilter } = useFilters(filterGroups);
+  const { changeSelectFilter, selectableFilters, handleFilter } = useFilters(
+    filterGroups,
+    setIsOpen
+  );
 
   return (
     <StyledWrapper>
