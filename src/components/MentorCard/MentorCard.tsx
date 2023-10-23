@@ -15,14 +15,14 @@ interface IMentorCardProps extends IMentorCard {
 
 const MentorCard: FC<IMentorCardProps> = ({ id, image, alt, variant = 'FullWidth', ...other }) => {
   const { push } = useRouter();
-  const isMobile = useMediaQuery('(max-width: 768px)');
+  const isTablet = useMediaQuery('(max-width: 1024px)');
 
   return (
     <StyledWrapper variant={variant}>
       <StyledImage src={`/static/${image}`} alt={alt} fill sizes="100%" variant={variant} />
       {variant === 'FullWidth' && <CommunicationPanel callLink="/" messageLink="/" />}
       <MentorCardContent {...other} id={id} variant={variant} />
-      {(variant === 'Swiper' || isMobile) && (
+      {(variant === 'Swiper' || isTablet) && (
         <Button variant="ghost" onClick={() => push(`/mentor/${id}`, '', { scroll: false })} />
       )}
     </StyledWrapper>

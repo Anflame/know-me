@@ -24,11 +24,11 @@ const MentorCardContent: FC<IMentorCardContentProps> = ({
 }) => {
   const { push } = useRouter();
   const { spacing } = useTheme();
-  const isTablet = useMediaQuery('(min-width: 769px)');
+  const isDesktop = useMediaQuery('(min-width: 1025px)');
 
   return (
     <StyledContent color="white" variant={variant}>
-      {isTablet && (
+      {isDesktop && (
         <StyledInfo>
           <Typography variant="body1" color="primary">
             Подробнее
