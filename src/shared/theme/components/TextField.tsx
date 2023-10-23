@@ -6,7 +6,7 @@ export const MuiTextFieldOverride: ThemeOptions['components'] = {
       variant: 'standard',
     },
     styleOverrides: {
-      root: ({ theme: { palette, spacing }, ownerState: { variant, color } }) => ({
+      root: ({ theme: { palette, spacing, breakpoints }, ownerState: { variant, color } }) => ({
         fontSize: '1.125rem',
         lineHeight: '1.625rem',
         textAlign: 'center',
@@ -16,9 +16,14 @@ export const MuiTextFieldOverride: ThemeOptions['components'] = {
           label: {
             color: palette.primary.main,
           },
+
           '&:not(:first-of-type)': {
             marginTop: spacing(3),
+            [breakpoints.down('sm')]: {
+              marginTop: spacing(5),
+            },
           },
+
           [`& .${inputBaseClasses.root}`]: {
             '&:before': {
               borderBottom: `1px solid ${
@@ -31,6 +36,7 @@ export const MuiTextFieldOverride: ThemeOptions['components'] = {
               } !important`,
             },
           },
+
           [`&:hover .${inputBaseClasses.root}`]: {
             '&:before': {
               borderBottom: `1px solid ${

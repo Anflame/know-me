@@ -3,21 +3,25 @@ import { useRouter } from 'next/router';
 import { Typography, Stack, useTheme } from '@mui/material';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 
-import { StyledIconButton } from './styles';
+import { StyledIconButton, StyledWrapper } from './styles';
 
-const BackLink: FC = () => {
+interface IBackLinkProps {
+  fullWidth?: boolean;
+}
+
+const BackLink: FC<IBackLinkProps> = ({ fullWidth }) => {
   const { spacing } = useTheme();
   const { back } = useRouter();
 
   return (
-    <Stack position="relative" padding={spacing(2)}>
+    <StyledWrapper maxWidth={fullWidth ? 'auto' : '400px'}>
       <StyledIconButton onClick={back}>
         <Stack flexDirection="row" gap={spacing(1)} alignItems="center" height="inherit">
           <KeyboardDoubleArrowLeftIcon />
           <Typography textTransform="none">Назад</Typography>
         </Stack>
       </StyledIconButton>
-    </Stack>
+    </StyledWrapper>
   );
 };
 

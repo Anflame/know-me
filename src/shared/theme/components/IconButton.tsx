@@ -5,11 +5,14 @@ export const MuiIconButtonOverride: ThemeOptions['components'] = {
     styleOverrides: {
       root: {
         height: 'inherit',
+
         '&:hover': {
           background: 'transparent',
+
           p: {
             filter: 'brightness(1.5)',
           },
+
           svg: {
             filter: 'brightness(1.5)',
           },

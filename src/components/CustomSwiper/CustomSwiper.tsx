@@ -28,7 +28,7 @@ const CustomSwiper: FC<ICustomSwiperProps> = ({ children, refs = {}, pagination,
     <Swiper
       init={isInit}
       navigation={navigationOptions}
-      pagination={{ ...pagination, ...paginationOptions }}
+      pagination={{ ...pagination, ...(paginationOptions || {}) }}
       {...others}
     >
       {wrappedChildren}

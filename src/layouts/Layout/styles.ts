@@ -7,8 +7,11 @@ export const StyledLayout = styled(Stack)({
   alignItems: 'center',
 });
 
-export const StyledMain = styled(Stack)({
+export const StyledMain = styled(Stack)(({ theme: { spacing, breakpoints } }) => ({
   width: 'inherit',
   alignItems: 'center',
-  padding: '30px 0',
-});
+  padding: `${spacing(4)} 0`,
+  [breakpoints.down('sm')]: {
+    padding: `${spacing(2)} 0`,
+  },
+}));

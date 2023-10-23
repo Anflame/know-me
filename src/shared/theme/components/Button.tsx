@@ -15,6 +15,7 @@ export const MuiButtonOverride: ThemeOptions['components'] = {
         ...(variant === 'outlined' && {
           border: '1px solid transparent',
           color: palette.primary.main,
+
           '&:before': {
             content: `""`,
             position: 'absolute',
@@ -28,6 +29,7 @@ export const MuiButtonOverride: ThemeOptions['components'] = {
             borderBottomLeftRadius: spacing(0.5),
             transition: 'width 1s',
           },
+
           '&:after': {
             content: `""`,
             position: 'absolute',
@@ -42,13 +44,16 @@ export const MuiButtonOverride: ThemeOptions['components'] = {
             borderBottomRightRadius: spacing(0.5),
             transition: 'width 1.5s',
           },
+
           '&:hover': {
             color: palette.common.white,
             border: '1px solid transparent',
             background: 'transparent',
+
             '&:before': {
               width: '100%',
             },
+
             '&:after': {
               width: '100%',
             },
@@ -58,6 +63,7 @@ export const MuiButtonOverride: ThemeOptions['components'] = {
         ...(variant === 'text' && {
           minWidth: 'auto',
           padding: '0 !important',
+
           [`&:before`]: {
             content: `""`,
             position: 'absolute',
@@ -66,8 +72,10 @@ export const MuiButtonOverride: ThemeOptions['components'] = {
             borderBottom: `1px solid ${palette.primary.main}`,
             transition: 'width 0.5s',
           },
+
           [`&:hover`]: {
             background: 'transparent',
+
             [`&:before`]: {
               width: '100%',
             },
