@@ -7,13 +7,16 @@ interface IStyledMentorsVariant {
 }
 
 export const StyledContent = styled(Stack)<IStyledMentorsVariant>(
-  ({ theme: { spacing }, variant }) => ({
+  ({ theme: { spacing, breakpoints, palette }, variant }) => ({
     flexDirection: 'column',
     cursor: 'pointer',
-    background:
-      variant === 'FullWidth'
-        ? 'linear-gradient(45deg, rgba(94,14,207,1) 0%, rgba(94,14,207,1) 26%, rgba(14,19,47,1) 100%)'
-        : 'linear-gradient(0deg, rgba(94,14,207,1) 0%, rgba(94,14,207,1) 15%, rgba(14,19,47,1) 100%)',
+    backgroundImage: `linear-gradient(${variant === 'FullWidth' ? '45deg' : '0deg'}, ${alpha(
+      palette.secondary.main,
+      1
+    )} 0%, ${alpha(palette.secondary.main, 1)} ${variant === 'FullWidth' ? '26%' : '15%'}, ${alpha(
+      palette.background.default,
+      1
+    )} 100%)`,
     padding:
       variant === 'FullWidth'
         ? `${spacing(2)} ${spacing(1)}`
@@ -23,7 +26,16 @@ export const StyledContent = styled(Stack)<IStyledMentorsVariant>(
     top: variant === 'FullWidth' ? 0 : 'auto',
     right: 0,
     height: variant === 'FullWidth' ? '100%' : 'auto',
-    width: variant === 'FullWidth' ? '51.5%' : '100%',
+
+    [breakpoints.down('sm')]: {
+      width: variant === 'FullWidth' ? '60.5%' : '100%',
+    },
+
+    width: variant === 'FullWidth' ? '55.5%' : '100%',
+
+    [breakpoints.between('sm', 'lg')]: {
+      width: variant === 'FullWidth' ? '63.5%' : '100%',
+    },
     borderBottomLeftRadius: variant === 'FullWidth' ? 0 : spacing(2),
     borderTopRightRadius: variant === 'FullWidth' ? spacing(2) : 0,
     borderBottomRightRadius: spacing(2),

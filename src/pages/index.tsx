@@ -15,8 +15,8 @@ const Home: NextPage = () => (
     </Head>
     <Container>
       <CustomList view="Grid">
-        {categories.map(({ id, ...item }) => (
-          <CategoryCard key={id} {...item} />
+        {categories.map(({ id, ...item }, index) => (
+          <CategoryCard key={id} {...item} index={index} />
         ))}
       </CustomList>
     </Container>

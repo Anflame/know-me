@@ -23,7 +23,7 @@ export const useSwiper = (refs: Partial<IRefsSwiper>) => {
     const isReadyPagination = isReadyRef(paginationRef);
     const isReadyNavigation = isReadyRef(next) && isReadyRef(prev);
 
-    if (isReadyNavigation || isReadyPagination) {
+    if (isReadyNavigation && isReadyPagination) {
       setIsInit(true);
     }
   }, [next, paginationRef, prev]);

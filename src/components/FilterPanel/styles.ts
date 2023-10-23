@@ -1,9 +1,34 @@
-import { Box, Button, Stack, SwipeableDrawer, paperClasses, styled } from '@mui/material';
+import {
+  Box,
+  Button,
+  Stack,
+  SwipeableDrawer,
+  Typography,
+  paperClasses,
+  styled,
+  alpha,
+} from '@mui/material';
 
-export const StyledSwipeableDrawer = styled(SwipeableDrawer)({
+export const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme: { palette } }) => ({
   [`& .${paperClasses.root}`]: {
-    background: 'linear-gradient(45deg, rgba(60,1,143,1) 0%, rgba(14,19,47,1) 100%)',
+    backgroundImage: `linear-gradient(45deg, ${alpha(palette.secondary.main, 1)} 0%, ${alpha(
+      palette.background.default,
+      1
+    )} 100%)`,
   },
+}));
+
+export const StyledWrapper = styled(Box)(({ theme: { breakpoints } }) => ({
+  position: 'absolute',
+  [breakpoints.down('sm')]: {
+    position: 'relative',
+  },
+  right: 0,
+}));
+
+export const StyledHeading = styled(Typography)({
+  textDecoration: 'underline',
+  textAlign: 'center',
 });
 
 export const StyledButtonWrapper = styled(Box)(({ theme: { spacing } }) => ({
@@ -17,14 +42,9 @@ export const StyledButton = styled(Button)(({ theme: { spacing } }) => ({
   height: spacing(4),
   textTransform: 'none',
 }));
-
-export const StyledWrapper = styled(Box)({
-  position: 'absolute',
-  left: 0,
-});
-
 export const StyledFilterGroups = styled(Stack)(({ theme: { spacing } }) => ({
   maxHeight: `calc(100vh - ${spacing(9)})`,
+  width: '250px',
   overflow: 'auto',
   padding: `${spacing(2)} 0`,
 }));
