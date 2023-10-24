@@ -1,11 +1,11 @@
 import type { IAuthConfig } from '@/types';
-import { authType } from '@/shared/utils';
+import { authType } from '@/utils';
 import api from './instance';
 
-export const fetchAuth = (config: IAuthConfig) => {
-  const res = api.post(config.isSignUp ? '/auth/register' : '/auth/login', {
+export const fetchAuth = async (config: IAuthConfig) => {
+  const { data } = await api.post(config.isSignUp ? '/oauth/register' : '/oauth/login', {
     ...authType(config),
   });
 
-  return res;
+  return data;
 };

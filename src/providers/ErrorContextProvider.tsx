@@ -1,7 +1,7 @@
 import { FC, ReactNode, useState, useCallback, useMemo } from 'react';
 import { Alert, AlertTitle, Slide, alertClasses, styled } from '@mui/material';
 
-import { ErrorContext, defaultErrorContext } from '../errorContext';
+import { ErrorContext, defaultErrorContext } from '@/utils';
 
 interface IErrorContextProviderProps {
   children: ReactNode;

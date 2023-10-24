@@ -1,13 +1,12 @@
-import React, { FC, useContext, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm, FieldErrors } from 'react-hook-form';
-import { IconButton, InputAdornment, Stack } from '@mui/material';
+import { IconButton, InputAdornment, CircularProgress, Stack } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 import { FormTextField } from '@/ui-components';
-import { authType, logInScheme, signUpScheme } from '@/shared/utils';
-import { ErrorContext } from '@/shared/utils/errorContext';
+import { authType, logInScheme, signUpScheme } from '@/utils';
 
 import { useAuth } from './hooks';
 import type { ILoginForm, ISignUpForm } from './types';
@@ -18,13 +17,14 @@ interface IAuthFormProps {
 }
 
 const AuthForm: FC<IAuthFormProps> = ({ isSignUp }) => {
-  const { showError } = useContext(ErrorContext);
+  const [showPassword, setShowPassword] = useState(false);
+  const { handleAuth, isLoading } = useAuth(isSignUp);
+
   const customAuthConfig = {
     email: '',
-    userName: '',
+    name: '',
     password: '',
   };
-
   const defaultValues = authType({ ...customAuthConfig, isSignUp });
 
   const {
@@ -37,15 +37,7 @@ const AuthForm: FC<IAuthFormProps> = ({ isSignUp }) => {
     resolver: yupResolver<ILoginForm | ISignUpForm>(isSignUp ? signUpScheme : logInScheme),
   });
 
-  const [showPassword, setShowPassword] = useState(false);
-
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-  };
-
-  const { handleAuth, isLoading } = useAuth(isSignUp, showError);
 
   return (
     <Stack component="form" onSubmit={handleSubmit(handleAuth)} width="100%">
@@ -61,12 +53,12 @@ const AuthForm: FC<IAuthFormProps> = ({ isSignUp }) => {
       {isSignUp && (
         <FormTextField
           control={control}
-          name="userName"
+          name="name"
           label="Your Name"
           placeholder="UserName"
           fullWidth
-          isError={!!(errors as FieldErrors<ISignUpForm>).userName}
-          errorMessage={(errors as FieldErrors<ISignUpForm>).userName?.message}
+          isError={!!(errors as FieldErrors<ISignUpForm>).name}
+          errorMessage={(errors as FieldErrors<ISignUpForm>).name?.message}
         />
       )}
       <FormTextField
@@ -76,6 +68,7 @@ const AuthForm: FC<IAuthFormProps> = ({ isSignUp }) => {
         placeholder="Password123"
         fullWidth
         isError={!!errors.password}
+        errorMessage={errors.password?.message}
         type={showPassword ? 'text' : 'password'}
         InputProps={{
           endAdornment: (
@@ -83,7 +76,7 @@ const AuthForm: FC<IAuthFormProps> = ({ isSignUp }) => {
               <IconButton
                 aria-label="toggle password visibility"
                 onClick={handleClickShowPassword}
-                onMouseDown={handleMouseDownPassword}
+                onMouseDown={(e) => e.preventDefault()}
               >
                 {showPassword ? <VisibilityOff /> : <Visibility />}
               </IconButton>
@@ -93,6 +86,14 @@ const AuthForm: FC<IAuthFormProps> = ({ isSignUp }) => {
       />
       <StyledButton fullWidth type="submit" disabled={isLoading}>
         {isSignUp ? 'signUp' : 'login'}
+        {isLoading && (
+          <CircularProgress
+            size="25px"
+            style={{
+              position: 'absolute',
+            }}
+          />
+        )}
       </StyledButton>
     </Stack>
   );
