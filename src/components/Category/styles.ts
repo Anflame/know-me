@@ -12,7 +12,7 @@ export const StyledTitleWrapper = styled(Stack)(({ theme: { spacing, typography,
   fontSize: typography.h6.fontSize,
   gap: spacing(2),
   padding: spacing(1),
-  borderBottomLeftRadius: spacing(1),
+  borderTopLeftRadius: spacing(1),
   backgroundImage: `linear-gradient(0deg, ${alpha(palette.secondary.main, 1)} 0%, ${alpha(
     palette.background.default,
     1

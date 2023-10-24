@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from 'react';
+import React, { FC, useRef, useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import {
   useMediaQuery,
@@ -21,6 +21,7 @@ import { Menu } from '@/components/Menu';
 import { filters } from '@/constants/filters';
 import { mentors } from '@/constants/mentors';
 import { IsSignUp, Login, SignUp } from '@/types';
+import { AuthContext, localSource } from '@/utils';
 
 import { StyledContainer, StyledWrapper, StyledImage, StyledPanelsWrapper } from './styles';
 import { getIsSignUp } from './utils';
@@ -30,8 +31,10 @@ const Header: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
   const { spacing } = useTheme();
+  const { remove } = localSource();
   const { push, pathname } = useRouter();
-  const isTablet = useMediaQuery('(min-width: 769px)');
+  const { changeAuth, isAuth } = useContext(AuthContext);
+  const isMobile = useMediaQuery('(max-width: 768px)');
 
   const handleAuth = (type: IsSignUp) => {
     setIsSignUp(getIsSignUp(type));
@@ -39,6 +42,11 @@ const Header: FC = () => {
   };
 
   const handleToggleModal = () => setIsOpen((prev) => !prev);
+
+  const logOut = () => {
+    remove('tokens');
+    changeAuth(false);
+  };
 
   return (
     <StyledWrapper ref={rootRef}>
@@ -50,17 +58,25 @@ const Header: FC = () => {
               know me
             </Typography>
           </IconButton>
-          {isTablet ? (
-            <Stack flexDirection="row" gap={spacing(3)}>
-              <Button variant="text" onClick={() => handleAuth(SignUp)}>
-                <Typography>login</Typography>
-              </Button>
-              <Button variant="text" onClick={() => handleAuth(Login)}>
-                <Typography>signUp</Typography>
-              </Button>
-            </Stack>
-          ) : (
+          {isMobile ? (
             <Menu handleAuth={handleAuth} />
+          ) : (
+            <Stack flexDirection="row" gap={spacing(3)}>
+              {!isAuth ? (
+                <>
+                  <Button variant="text" onClick={() => handleAuth(Login)}>
+                    <Typography>login</Typography>
+                  </Button>
+                  <Button variant="text" onClick={() => handleAuth(SignUp)}>
+                    <Typography>signUp</Typography>
+                  </Button>
+                </>
+              ) : (
+                <Button variant="text" onClick={logOut}>
+                  <Typography>logout</Typography>
+                </Button>
+              )}
+            </Stack>
           )}
         </Stack>
         <HeaderSwiper>

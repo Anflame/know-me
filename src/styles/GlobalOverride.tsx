@@ -1,7 +1,7 @@
 import React from 'react';
 import { alpha, GlobalStyles, useTheme } from '@mui/material';
 
-import { pxToRem } from './theme';
+import { pxToRem } from '@/theme';
 
 export const SCROLLBAR_SIZE = pxToRem(6);
 

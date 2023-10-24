@@ -7,7 +7,7 @@ export const authType = (config: IAuthConfig) => {
   };
 
   if (config.isSignUp) {
-    authConfig.userName = config.userName;
+    authConfig.name = config.name;
   }
 
   return authConfig;

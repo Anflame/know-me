@@ -9,14 +9,14 @@ import {
   themeConstants,
   spacing,
   breakpoints,
-} from '../../theme';
+} from '@/theme';
 import {
   MuiContainerOverride,
   MuiButtonOverride,
   MuiTextFieldOverride,
   MuiIconButtonOverride,
   MuiAccordionOverride,
-} from '../../theme/components';
+} from '@/theme/components';
 
 const baseTheme = {
   spacing,
