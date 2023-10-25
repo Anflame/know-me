@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app';
 import React, { FC, ReactNode, useState } from 'react';
 import { Hydrate, QueryClientProvider } from 'react-query';
+
 import { factoryQueryClient } from '@/utils';
 
 type TCustomQueryClientProviderProps = {

@@ -9,6 +9,4 @@ const queryClientConfig: QueryClientConfig = {
   },
 };
 
-const factoryQueryClient = () => new QueryClient(queryClientConfig);
-
-export default factoryQueryClient;
+export const factoryQueryClient = () => new QueryClient(queryClientConfig);
