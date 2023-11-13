@@ -97,9 +97,12 @@ export const MuiButtonOverride: ThemeOptions['components'] = {
       {
         props: { variant: 'ghost' },
         style: {
+          padding: 0,
           background: 'transparent',
           border: 'none',
           position: 'absolute',
+          left: 0,
+          top: 0,
           width: '100%',
           height: '100%',
           '&:hover': {

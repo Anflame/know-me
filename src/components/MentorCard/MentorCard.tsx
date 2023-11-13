@@ -20,7 +20,7 @@ const MentorCard: FC<IMentorCardProps> = ({ id, image, alt, variant = 'FullWidth
   return (
     <StyledWrapper variant={variant}>
       <StyledImage src={`/static/${image}`} alt={alt} fill sizes="100%" variant={variant} />
-      {variant === 'FullWidth' && <CommunicationPanel callLink="/" messageLink="/" />}
+      {variant === 'FullWidth' && <CommunicationPanel callLink="/" messageLink="/messenger" />}
       <MentorCardContent {...other} id={id} variant={variant} />
       {(variant === 'Swiper' || isTablet) && (
         <Button variant="ghost" onClick={() => push(`/mentor/${id}`, '', { scroll: false })} />
