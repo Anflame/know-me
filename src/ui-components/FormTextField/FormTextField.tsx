@@ -1,7 +1,8 @@
 import { Controller, FieldValues } from 'react-hook-form';
-import { TextField, TextFieldProps, Alert } from '@mui/material';
+import { TextField, TextFieldProps } from '@mui/material';
 
 import type { IFormTextField } from '../types';
+import { StyledAlert } from './styles';
 
 const FormTextField = <T extends FieldValues>({
   control,
@@ -17,19 +18,14 @@ const FormTextField = <T extends FieldValues>({
     name={name}
     render={({ field: { value, onChange } }) => (
       <>
-        <TextField error={isError} onChange={onChange} value={value} {...args} />
-        {isError && (
-          <Alert
-            severity="error"
-            style={{
-              background: 'transparent',
-              color: 'red',
-              padding: 0,
-            }}
-          >
-            {errorMessage}
-          </Alert>
-        )}
+        <TextField
+          error={isError}
+          onChange={onChange}
+          value={value}
+          fullWidth={fullWidth}
+          {...args}
+        />
+        {isError && <StyledAlert severity="error">{errorMessage}</StyledAlert>}
       </>
     )}
   />

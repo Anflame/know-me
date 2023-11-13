@@ -1,8 +1,10 @@
 import { Container, Stack, styled } from '@mui/material';
 import Image from 'next/image';
 
-export const StyledWrapper = styled(Stack)(({ theme: { spacing } }) => ({
-  minHeight: '500px',
+export const StyledWrapper = styled(Stack, { shouldForwardProp: (props) => props !== 'pathName' })<{
+  pathName: string;
+}>(({ theme: { spacing }, pathName }) => ({
+  height: pathName === '/' ? '500px' : '300px',
   padding: `${spacing(3)} 0 0`,
   position: 'relative',
   width: 'inherit',
@@ -27,9 +29,10 @@ export const StyledContent = styled(Stack)(
 );
 
 export const StyledContainer = styled(Container)({
+  height: 'inherit',
   display: 'flex',
   flexDirection: 'column',
-  alignContent: 'space-between',
+  justifyContent: 'space-between',
 });
 
 export const StyledImage = styled(Image)({
@@ -45,9 +48,10 @@ export const StyledPanelsWrapper = styled(Stack)(({ theme: { spacing, breakpoint
   alignItems: 'flex-end',
   width: '100%',
   margin: `${spacing(8)} 0 0`,
+  position: 'relative',
+
   [breakpoints.down('sm')]: {
     maxWidth: '400px',
     margin: `${spacing(8)} auto 0`,
   },
-  position: 'relative',
 }));
