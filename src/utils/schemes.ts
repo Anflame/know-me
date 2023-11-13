@@ -14,3 +14,7 @@ export const logInScheme = object().shape({
     .required()
     .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,32}/g),
 });
+
+export const messageScheme = object({
+  newMessage: string().required(),
+}).required();

@@ -31,7 +31,7 @@ const Mentor: FC<IMentorCard> = ({
           {isTablet && (
             <StyledImageWrapper>
               <StyledImage src={`/static/${image}`} alt={alt} fill sizes="100%" />
-              <CommunicationPanel callLink="/" messageLink="/" />
+              <CommunicationPanel callLink="/" messageLink="/messenger" />
             </StyledImageWrapper>
           )}
           <StyledContent>
@@ -39,7 +39,7 @@ const Mentor: FC<IMentorCard> = ({
               {!isTablet && (
                 <StyledImageWrapper>
                   <StyledImage src={`/static/${image}`} alt={alt} fill sizes="100%" />
-                  <CommunicationPanel callLink="/" messageLink="/" />
+                  <CommunicationPanel callLink="/" messageLink="/messenger" />
                 </StyledImageWrapper>
               )}
               <Box>

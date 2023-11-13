@@ -11,20 +11,20 @@ import {
   Box,
 } from '@mui/material';
 
+import { AuthContext, localSource } from '@/utils';
+import { IsSignUp, Login, SignUp } from '@/types';
+import { filters } from '@/constants/filters';
+import { mentors } from '@/constants/mentors';
 import { Auth } from '@/components/Auth';
+import { BackLink } from '@/components/BackLink';
+import { FilterPanel } from '@/components/FilterPanel';
 import { HeaderSwiper } from '@/components/HeaderSwiper';
 import { MentorCard } from '@/components/MentorCard';
 import { SearchPanel } from '@/components/SearchPanel';
-import { FilterPanel } from '@/components/FilterPanel';
-import { BackLink } from '@/components/BackLink';
 import { Menu } from '@/components/Menu';
-import { filters } from '@/constants/filters';
-import { mentors } from '@/constants/mentors';
-import { IsSignUp, Login, SignUp } from '@/types';
-import { AuthContext, localSource } from '@/utils';
 
-import { StyledContainer, StyledWrapper, StyledImage, StyledPanelsWrapper } from './styles';
 import { getIsSignUp } from './utils';
+import { StyledContainer, StyledWrapper, StyledImage, StyledPanelsWrapper } from './styles';
 
 const Header: FC = () => {
   const rootRef = useRef(null);
@@ -49,7 +49,7 @@ const Header: FC = () => {
   };
 
   return (
-    <StyledWrapper ref={rootRef}>
+    <StyledWrapper ref={rootRef} pathName={pathname}>
       <StyledImage src="/static/header-background.jpg" alt="background-image" fill priority />
       <StyledContainer>
         <Stack flexDirection="row" justifyContent="space-between">
@@ -62,7 +62,7 @@ const Header: FC = () => {
             <Menu handleAuth={handleAuth} />
           ) : (
             <Stack flexDirection="row" gap={spacing(3)}>
-              {!isAuth ? (
+              {!isAuth && (
                 <>
                   <Button variant="text" onClick={() => handleAuth(Login)}>
                     <Typography>login</Typography>
@@ -71,7 +71,8 @@ const Header: FC = () => {
                     <Typography>signUp</Typography>
                   </Button>
                 </>
-              ) : (
+              )}
+              {isAuth && (
                 <Button variant="text" onClick={logOut}>
                   <Typography>logout</Typography>
                 </Button>
@@ -79,18 +80,20 @@ const Header: FC = () => {
             </Stack>
           )}
         </Stack>
-        <HeaderSwiper>
-          {mentors.map((item) => (
-            <MentorCard key={item.id} {...item} variant="Swiper" />
-          ))}
-        </HeaderSwiper>
         {pathname === '/' ? (
-          <StyledPanelsWrapper>
-            <SearchPanel />
-            <FilterPanel filterGroups={filters} />
-          </StyledPanelsWrapper>
+          <>
+            <HeaderSwiper>
+              {mentors.map((item) => (
+                <MentorCard key={item.id} {...item} variant="Swiper" />
+              ))}
+            </HeaderSwiper>
+            <StyledPanelsWrapper>
+              <SearchPanel />
+              <FilterPanel filterGroups={filters} />
+            </StyledPanelsWrapper>
+          </>
         ) : (
-          <Box position="relative" width="100%" mt={spacing(8)}>
+          <Box position="relative" width="100%">
             <BackLink fullWidth={pathname === '/mentor/[...id]'} />
           </Box>
         )}
