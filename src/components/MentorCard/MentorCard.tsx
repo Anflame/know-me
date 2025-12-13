@@ -18,7 +18,7 @@ const MentorCard: FC<IMentorCardProps> = ({ id, image, alt, variant = 'FullWidth
   const isTablet = useMediaQuery('(max-width: 1024px)');
 
   return (
-    <StyledWrapper variant={variant}>
+    <StyledWrapper variant={variant} data-testid="mentor-card">
       <StyledImage src={`/static/${image}`} alt={alt} fill sizes="100%" variant={variant} />
       {variant === 'FullWidth' && <CommunicationPanel callLink="/" messageLink="/messenger" />}
       <MentorCardContent {...other} id={id} variant={variant} />

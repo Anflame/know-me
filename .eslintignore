@@ -1,5 +1,4 @@
 lint-staged.config.js
-.eslintrc.js
 next.config.js
 .next
 public

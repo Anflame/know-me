@@ -27,7 +27,7 @@ const Messenger: FC<UserChats> = ({ chats, userImage }) => {
       <StyledWrapper>
         <ChatList chats={chats} setSelectedId={setSelectedId} />
         <Chat id={selectedId} companionImage={companionImage} userImage={userImage} />
-        <StyledCloseBtn>
+        <StyledCloseBtn onClick={() => setIsOpen(false)} data-testid="close-btn">
           <CloseIcon />
         </StyledCloseBtn>
       </StyledWrapper>

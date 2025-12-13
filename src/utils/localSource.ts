@@ -1,8 +1,6 @@
 export const localSource = () => {
   let storage: Storage | undefined;
-  if (typeof window !== 'undefined') {
-    storage = localStorage;
-  }
+  if (typeof window !== 'undefined') storage = localStorage;
 
   const set = (key: string, value: string) => {
     storage?.setItem(key, value);

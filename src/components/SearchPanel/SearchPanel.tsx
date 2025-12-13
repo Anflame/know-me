@@ -11,9 +11,9 @@ const SearchPanel: FC = () => {
 
   const { push } = useRouter();
 
-  const handleSubmit = (e: FormEvent<HTMLDivElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLDivElement>) => {
     e.preventDefault();
-    push(`/mentors?${stringify({ search: value })}`, '', {
+    await push(`/mentors?${stringify({ search: value })}`, '', {
       scroll: false,
     });
   };

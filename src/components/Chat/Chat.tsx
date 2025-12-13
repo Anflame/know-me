@@ -18,7 +18,7 @@ import {
   StyledWrapper,
 } from './styles';
 
-interface IChatProps {
+export interface IChatProps {
   id: string;
   companionImage: Pick<IChat, 'title' | 'alt' | 'image'>;
   userImage: IUserImage;
