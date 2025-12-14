@@ -42,7 +42,7 @@ describe('Menu component', () => {
     render(<Menu handleAuth={handleAuth} />);
   });
 
-  test('open/closed', async () => {
+  it('open/closed', async () => {
     expect(screen.queryByText('login')).not.toBeInTheDocument();
 
     const user = userEvent.setup();
@@ -54,7 +54,7 @@ describe('Menu component', () => {
     expect(screen.queryByText('login')).not.toBeInTheDocument();
   });
 
-  test('open/closed через drawer-open', async () => {
+  it('open/closed через drawer-open', async () => {
     const user = userEvent.setup();
 
     expect(screen.queryByText('login')).not.toBeInTheDocument();
@@ -66,7 +66,7 @@ describe('Menu component', () => {
     expect(screen.queryByText('login')).not.toBeInTheDocument();
   });
 
-  test('click login/signup вызывает handleAuth', async () => {
+  it('click login/signup вызывает handleAuth', async () => {
     const user = userEvent.setup();
 
     await user.click(screen.getByTestId('drawer-open'));

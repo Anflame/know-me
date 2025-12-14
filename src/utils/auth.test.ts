@@ -11,15 +11,15 @@ describe('auth test', () => {
 
   const { isSignUp, name, ...items } = config;
 
-  test('signUp', () => {
+  it('signUp', () => {
     expect(authType(config)).toEqual(items);
   });
 
-  test('logIn', () => {
+  it('logIn', () => {
     expect(authType({ ...config, isSignUp: true })).toEqual({ ...items, name });
   });
 
-  test('signup без name не крашится', () => {
+  it('signup без name не крашится', () => {
     const { name: withoutNameName, ...withoutName } = config;
     expect(authType(withoutName)).toEqual(items);
   });

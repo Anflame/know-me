@@ -14,7 +14,8 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@test/*": ["./__test__/*"]
     },
     "types": ["jest", "@testing-library/jest-dom"]
   },

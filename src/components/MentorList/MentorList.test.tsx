@@ -3,7 +3,7 @@ import { MentorList } from '@/components/MentorList';
 import { IMentorCard } from '@/types';
 
 describe('MentorList', () => {
-  test('should render mentorList correctly', () => {
+  it('should render mentorList correctly', () => {
     const mentor: IMentorCard = {
       id: 1,
       title: 'first',
@@ -30,7 +30,7 @@ describe('MentorList', () => {
     expect(screen.getByText('first')).toBeInTheDocument();
   });
 
-  test('should not render cards', () => {
+  it('should not render cards', () => {
     render(<MentorList propMentors={[]} />);
 
     expect(screen.queryByTestId('mentor-card')).not.toBeInTheDocument();

@@ -12,9 +12,9 @@ type AuthProps = {
 };
 
 const Auth = forwardRef<HTMLDivElement, AuthProps>(({ isSignUp, onClose, isOpen }, ref) => (
-  <Backdrop open={isOpen} onClick={onClose}>
-    <StyledContent ref={ref} onClick={(e) => e.stopPropagation()}>
-      <StyledIconButton onClick={onClose}>
+  <Backdrop open={isOpen} onClick={onClose} data-testid="auth-backdrop">
+    <StyledContent ref={ref} onClick={(e) => e.stopPropagation()} data-testid="auth-content">
+      <StyledIconButton onClick={onClose} data-testid="auth-button-close">
         <CloseIcon color="primary" />
       </StyledIconButton>
       <AuthForm isSignUp={isSignUp} />

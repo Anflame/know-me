@@ -62,7 +62,6 @@ const Chat: FC<IChatProps> = ({ id, companionImage, userImage }) => {
           <Stack gap={spacing(2)}>
             {messages.map((item, index) => (
               <Message
-                // eslint-disable-next-line no-underscore-dangle
                 key={item._id}
                 message={messages}
                 index={index}

@@ -46,6 +46,7 @@ const AuthForm: FC<IAuthFormProps> = ({ isSignUp }) => {
         name="email"
         label="Email"
         placeholder="example@email.com"
+        data-testid="email-field"
         fullWidth
         isError={!!errors.email}
         errorMessage={errors.email?.message}
@@ -55,6 +56,7 @@ const AuthForm: FC<IAuthFormProps> = ({ isSignUp }) => {
           control={control}
           name="name"
           label="Your Name"
+          data-testid="name-field"
           placeholder="UserName"
           fullWidth
           isError={!!(errors as FieldErrors<ISignUpForm>).name}
@@ -67,6 +69,7 @@ const AuthForm: FC<IAuthFormProps> = ({ isSignUp }) => {
         label="Password"
         placeholder="Password123"
         fullWidth
+        data-testid="password-field"
         isError={!!errors.password}
         errorMessage={errors.password?.message}
         type={showPassword ? 'text' : 'password'}
@@ -84,7 +87,7 @@ const AuthForm: FC<IAuthFormProps> = ({ isSignUp }) => {
           ),
         }}
       />
-      <StyledButton fullWidth type="submit" disabled={isLoading}>
+      <StyledButton fullWidth type="submit" disabled={isLoading} data-testid="sendBtn">
         {isSignUp ? 'signUp' : 'login'}
         {isLoading && (
           <CircularProgress

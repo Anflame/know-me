@@ -9,7 +9,7 @@ import { MentorCardContent } from './MentorCardContent';
 import type { MentorCardVariant } from './types';
 import { StyledImage, StyledWrapper } from './styles';
 
-interface IMentorCardProps extends IMentorCard {
+export interface IMentorCardProps extends IMentorCard {
   variant: keyof typeof MentorCardVariant;
 }
 
@@ -23,7 +23,11 @@ const MentorCard: FC<IMentorCardProps> = ({ id, image, alt, variant = 'FullWidth
       {variant === 'FullWidth' && <CommunicationPanel callLink="/" messageLink="/messenger" />}
       <MentorCardContent {...other} id={id} variant={variant} />
       {(variant === 'Swiper' || isTablet) && (
-        <Button variant="ghost" onClick={() => push(`/mentor/${id}`, '', { scroll: false })} />
+        <Button
+          variant="ghost"
+          onClick={() => push(`/mentor/${id}`, '', { scroll: false })}
+          data-testid="redirect-btn"
+        />
       )}
     </StyledWrapper>
   );

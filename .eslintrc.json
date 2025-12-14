@@ -17,6 +17,7 @@
 
     "import/prefer-default-export": "off",
     "react/react-in-jsx-scope": "off",
+    "no-underscore-dangle": "off",
     "react/require-default-props": "off",
     "react/jsx-props-no-spreading": "off",
     "react/no-array-index-key": "off",
@@ -25,5 +26,13 @@
       "error",
       { "namedComponents": "arrow-function", "unnamedComponents": "arrow-function" }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["__test__/**/*", "**/*.test.{js,jsx,ts,tsx}"],
+      "rules": {
+        "import/no-extraneous-dependencies": "off"
+      }
+    }
+  ]
 }

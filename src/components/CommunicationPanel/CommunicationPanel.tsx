@@ -15,7 +15,7 @@ const CommunicationPanel: FC<ICommunicationPanelProps> = ({ callLink, messageLin
   const { push } = useRouter();
 
   return (
-    <StyledWrapper>
+    <StyledWrapper data-testid="communication-panel">
       <IconButton onClick={() => push(callLink)}>
         <LocalPhoneIcon color="success" />
       </IconButton>

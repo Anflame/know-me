@@ -65,11 +65,11 @@ describe('Messenger Component', () => {
     act(() => lastSetSelectedId?.('1'));
   });
 
-  test('передаёт выбранный id в Chat', () => {
+  it('передаёт выбранный id в Chat', () => {
     expect(screen.getByText('Chat mock: 1')).toBeInTheDocument();
   });
 
-  test('Закрывается Drawer по клику на кнопку', async () => {
+  it('Закрывается Drawer по клику на кнопку', async () => {
     expect(screen.getByText('Chat mock: 1')).toBeInTheDocument();
     const user = userEvent.setup();
     await user.click(screen.getByTestId('close-btn'));
@@ -79,7 +79,7 @@ describe('Messenger Component', () => {
     });
   });
 
-  test('Закрывается Drawer по клику на out drawer', async () => {
+  it('Закрывается Drawer по клику на out drawer', async () => {
     expect(screen.getByText('Chat mock: 1')).toBeInTheDocument();
     const user = userEvent.setup();
     await user.click(screen.getByTestId('drawer'));

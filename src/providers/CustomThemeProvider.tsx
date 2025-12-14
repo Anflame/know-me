@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import { createTheme, ThemeOptions, ThemeProvider } from '@mui/material/styles';
 
 import {
@@ -46,7 +46,7 @@ const theme = createTheme({
   components: componentsOverride,
 });
 
-const CustomThemeProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
+const CustomThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
