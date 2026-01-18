@@ -12,6 +12,10 @@ const red = {
   alert: '#FF2D55',
 };
 
+const purple = {
+  dark: '#08081AFF',
+};
+
 const white = {
   main: '#FFFFFF',
   1: alpha('#FFFFFF', 0.1),
@@ -39,4 +43,4 @@ const grey = {
   black: '#000000',
 };
 
-export { green, grey, red, white, main, yellow };
+export { green, grey, red, white, main, yellow, purple };
