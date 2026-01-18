@@ -11,18 +11,16 @@ interface ISkillsListProps {
   variant?: keyof typeof SkillsVariants;
 }
 
-const SkillsList: FC<ISkillsListProps> = ({ skills, variant = 'Listing' }) => {
-  return (
-    <StyledSkillsList variant={variant}>
-      {skills.map(({ title, id }) => (
-        <StyledSkillWrapp key={id}>
-          <Typography variant="body2" color="primary">
-            {title}
-          </Typography>
-        </StyledSkillWrapp>
-      ))}
-    </StyledSkillsList>
-  );
-};
+const SkillsList: FC<ISkillsListProps> = ({ skills, variant = 'Listing' }) => (
+  <StyledSkillsList variant={variant}>
+    {skills.map(({ title, id }) => (
+      <StyledSkillWrapp key={id}>
+        <Typography variant="body2" color="primary">
+          {title}
+        </Typography>
+      </StyledSkillWrapp>
+    ))}
+  </StyledSkillsList>
+);
 
 export default SkillsList;

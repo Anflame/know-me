@@ -13,7 +13,7 @@ interface ICategory {
 }
 
 const Category: FC<ICategory> = ({ mentors, title }) => (
-  <>
+  <main>
     <Container>
       <CustomList view="Grid">
         {mentors.map((item, index) => (
@@ -30,7 +30,7 @@ const Category: FC<ICategory> = ({ mentors, title }) => (
         <Typography fontSize="inherit">{title}</Typography>
       </StyledTitleWrapper>
     </Slide>
-  </>
+  </main>
 );
 
 export default Category;

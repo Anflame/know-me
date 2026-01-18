@@ -18,33 +18,31 @@ const ChatListItem: FC<IChatListItemProps> = ({
   lastMessageTimeSent,
   title,
   setSelectedId,
-}) => {
-  return (
-    <StyledWrapper>
-      <StyledImageWrapper>
-        <CustomImage alt={alt} src={`/static/${image}`} fill />
-      </StyledImageWrapper>
-      <Stack>
-        <Typography variant="body1">{title}</Typography>
-        <Typography
-          variant="body2"
-          style={{
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            display: '-webkit-box',
-            WebkitLineClamp: 1,
-            WebkitBoxOrient: 'vertical',
-          }}
-        >
-          {lastMessage}
-        </Typography>
-      </Stack>
-      <Typography variant="subtitle1" style={{ alignSelf: 'flex-start' }}>
-        {getShortTime(lastMessageTimeSent)}
+}) => (
+  <StyledWrapper>
+    <StyledImageWrapper>
+      <CustomImage alt={alt} src={`/static/${image}`} fill />
+    </StyledImageWrapper>
+    <Stack>
+      <Typography variant="body1">{title}</Typography>
+      <Typography
+        variant="body2"
+        style={{
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          display: '-webkit-box',
+          WebkitLineClamp: 1,
+          WebkitBoxOrient: 'vertical',
+        }}
+      >
+        {lastMessage}
       </Typography>
-      <Button variant="ghost" onClick={() => setSelectedId(_id)} />
-    </StyledWrapper>
-  );
-};
+    </Stack>
+    <Typography variant="subtitle1" style={{ alignSelf: 'flex-start' }}>
+      {getShortTime(lastMessageTimeSent)}
+    </Typography>
+    <Button variant="ghost" onClick={() => setSelectedId(_id)} />
+  </StyledWrapper>
+);
 
 export default ChatListItem;

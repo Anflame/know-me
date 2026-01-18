@@ -13,9 +13,7 @@ export const useAuth = (isSignUp: boolean) => {
   const { showError } = useContext(ErrorContext);
   const { changeAuth } = useContext(AuthContext);
   const { isError, isLoading, mutate } = useMutation({
-    mutationFn: (config: IAuthConfig) => {
-      return fetchAuth(config);
-    },
+    mutationFn: (config: IAuthConfig) => fetchAuth(config),
     onError: (error: AxiosError) => showError?.(error.message),
     onSuccess: (data) => saveAuthTokens(data),
   });

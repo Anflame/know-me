@@ -7,7 +7,7 @@ export const categories: ICategory[] = [
     slug: 'it_technology',
     title: 'ИТ Технологии',
     description: 'просто описание к категории ит технологии',
-    image: 'notebook.jpg',
+    image: 'notebook.webp',
     alt: 'computer',
   },
   {
@@ -15,7 +15,7 @@ export const categories: ICategory[] = [
     slug: 'accountant',
     title: 'Бух. учет',
     description: 'просто описание к категории бух учет',
-    image: 'paperwork.jpg',
+    image: 'paperwork.webp',
     alt: 'paperwork',
   },
   {
@@ -23,7 +23,7 @@ export const categories: ICategory[] = [
     slug: 'language',
     title: 'Иностранные языки',
     description: 'просто описание к категории иностранные языки',
-    image: 'language.jpg',
+    image: 'language.webp',
     alt: 'language',
   },
   {
@@ -31,7 +31,7 @@ export const categories: ICategory[] = [
     slug: 'accountant',
     title: 'Бух. учет',
     description: 'просто описание к категории бух учет',
-    image: 'paperwork.jpg',
+    image: 'paperwork.webp',
     alt: 'paperwork',
   },
   {
@@ -39,7 +39,7 @@ export const categories: ICategory[] = [
     slug: 'it_technology',
     title: 'ИТ Технологии',
     description: 'просто описание к категории ит технологии',
-    image: 'notebook.jpg',
+    image: 'notebook.webp',
     alt: 'computer',
   },
   {
@@ -47,7 +47,7 @@ export const categories: ICategory[] = [
     slug: 'language',
     title: 'Иностранные языки',
     description: 'просто описание к категории иностранные языки',
-    image: 'language.jpg',
+    image: 'language.webp',
     alt: 'language',
   },
   {
@@ -55,7 +55,7 @@ export const categories: ICategory[] = [
     slug: 'language',
     title: 'Иностранные языки',
     description: 'просто описание к категории иностранные языки',
-    image: 'language.jpg',
+    image: 'language.webp',
     alt: 'language',
   },
   {
@@ -63,7 +63,7 @@ export const categories: ICategory[] = [
     slug: 'language',
     title: 'Иностранные языки',
     description: 'просто описание к категории иностранные языки',
-    image: 'language.jpg',
+    image: 'language.webp',
     alt: 'language',
   },
   {
@@ -71,7 +71,7 @@ export const categories: ICategory[] = [
     slug: 'language',
     title: 'Иностранные языки',
     description: 'просто описание к категории иностранные языки',
-    image: 'language.jpg',
+    image: 'language.webp',
     alt: 'language',
   },
   {
@@ -79,7 +79,7 @@ export const categories: ICategory[] = [
     slug: 'language',
     title: 'Иностранные языки',
     description: 'просто описание к категории иностранные языки',
-    image: 'language.jpg',
+    image: 'language.webp',
     alt: 'language',
   },
 ];
