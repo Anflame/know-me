@@ -15,10 +15,9 @@ const api = axios.create(defaultConfig);
 api.interceptors.request.use((config) => {
   const { get } = localSource();
   const token = get('tokens') && (JSON.parse(get('tokens') as string) as ITOkens).access_token;
-  const auth = token ? `Bearer ${token}` : '';
 
   // eslint-disable-next-line no-param-reassign
-  config.headers.Authorization = auth;
+  config.headers.Authorization = token ? `Bearer ${token}` : '';
 
   return config;
 });

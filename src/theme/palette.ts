@@ -1,6 +1,6 @@
 import { PaletteOptions } from '@mui/material/styles';
 
-import { white, grey, red, main, green, yellow, purple } from './colors';
+import { white, grey, red, main, green, yellow } from './colors';
 
 export const base: PaletteOptions = {
   mode: 'dark',
@@ -20,7 +20,7 @@ export const base: PaletteOptions = {
 export const customPalette: PaletteOptions = {
   primary: {
     main: main.main,
-    dark: purple.dark,
+    dark: main.dark,
   },
   secondary: {
     main: main.alternative,

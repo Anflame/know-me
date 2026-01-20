@@ -1,4 +1,4 @@
-import { alpha } from '@mui/material';
+import { alpha, Color } from '@mui/material';
 
 const green = {
   success: '#82CF67',
@@ -12,11 +12,7 @@ const red = {
   alert: '#FF2D55',
 };
 
-const purple = {
-  dark: '#08081AFF',
-};
-
-const white = {
+const white: Partial<Color> = {
   main: '#FFFFFF',
   1: alpha('#FFFFFF', 0.1),
   4: alpha('#FFFFFF', 0.4),
@@ -25,6 +21,7 @@ const white = {
 
 const main = {
   background: '#0e132f',
+  dark: '#08081AFF',
   main: white.main,
   alternative: '#5e0ecf',
   negative: '#9f0ec4',
@@ -32,7 +29,7 @@ const main = {
   error: '#cf0837',
 };
 
-const grey = {
+const grey: Partial<Color> = {
   1: '#C5CBDD',
   2: '#9FADD2',
   3: alpha('#081B47', 0.48),
@@ -43,4 +40,4 @@ const grey = {
   black: '#000000',
 };
 
-export { green, grey, red, white, main, yellow, purple };
+export { green, grey, red, white, main, yellow };

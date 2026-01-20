@@ -26,6 +26,7 @@ declare module '@mui/material' {
     [4]?: string;
     [5]?: string;
     [6]?: string;
+    [16]?: string;
     shadow?: string;
     black?: string;
   }

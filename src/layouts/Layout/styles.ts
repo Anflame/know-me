@@ -2,6 +2,8 @@ import { Stack, styled } from '@mui/material';
 
 export const StyledLayout = styled(Stack)({
   width: '100%',
+  display: 'grid',
+  gridTemplateRows: 'min-content 1fr min-content',
   minHeight: '100vh',
   alignItems: 'center',
 });

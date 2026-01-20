@@ -15,7 +15,7 @@ const CategoryCard: FC<Omit<ICategory, 'id'> & { index: number }> = ({
 }) => (
   <Grow in timeout={300 * index}>
     <StyledLink href={`/category/${slug}`} scroll={false}>
-      <StyledWrapper>
+      <StyledWrapper component="article">
         <StyledImage src={`/static/${image}`} alt={alt} fill sizes="100%" />
         <StyledContent>
           <Typography variant="h6">{title}</Typography>
