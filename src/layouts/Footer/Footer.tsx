@@ -1,10 +1,16 @@
 import React from 'react';
-import { Container } from '@mui/material';
-import { StyledFooter } from './styles';
+import { Typography } from '@mui/material';
+import { StyledFooter, StyledContent, StyledContainer } from './styles';
 
 const Footer = () => (
   <StyledFooter as="footer">
-    <Container>Привет</Container>
+    <StyledContainer>
+      <StyledContent alignSelf="flex-end" justifySelf="flex-end">
+        <Typography>© Sidorov Denis. 2026. All right reserved</Typography>
+        <Typography>phone: +79603622662</Typography>
+        <Typography>telegram: @anflame</Typography>
+      </StyledContent>
+    </StyledContainer>
   </StyledFooter>
 );
 

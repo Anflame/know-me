@@ -1,4 +1,4 @@
-import { Stack, styled, alpha } from '@mui/material';
+import { Stack, Box, styled, alpha } from '@mui/material';
 
 export const StyledTitleWrapper = styled(Stack)(({ theme: { spacing, typography, palette } }) => ({
   margin: '0 auto',
@@ -18,4 +18,10 @@ export const StyledTitleWrapper = styled(Stack)(({ theme: { spacing, typography,
     1
   )} 70%)`,
   maxWidth: '40%',
+}));
+
+export const StyledMentorWrapper = styled(Box)<{ index: number }>(({ index }) => ({
+  animation: `slideUp 0.4s ${index * 0.08}s both`,
+  opacity: 0,
+  transform: 'translateY(20px)',
 }));

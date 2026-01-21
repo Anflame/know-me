@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import { Container, Slide, Typography, Grow, Box } from '@mui/material';
+import { Container, Slide, Typography } from '@mui/material';
 
 import { CustomList } from '@/ui-components';
 import type { IMentorCard } from '@/types';
 
 import { MentorCard } from '../MentorCard';
-import { StyledTitleWrapper } from './styles';
+import { StyledTitleWrapper, StyledMentorWrapper } from './styles';
 
 interface ICategory {
   mentors: IMentorCard[];
@@ -17,11 +17,9 @@ const Category: FC<ICategory> = ({ mentors, title }) => (
     <Container>
       <CustomList view="Grid">
         {mentors.map((item, index) => (
-          <Grow in timeout={350 * index} key={item.id}>
-            <Box>
-              <MentorCard variant="FullWidth" {...item} />
-            </Box>
-          </Grow>
+          <StyledMentorWrapper index={index} key={index}>
+            <MentorCard variant="FullWidth" {...item} />
+          </StyledMentorWrapper>
         ))}
       </CustomList>
     </Container>

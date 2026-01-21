@@ -45,3 +45,9 @@ export const StyledLink = styled(Link)({
   color: 'white',
   textDecoration: 'none',
 });
+
+export const StyledArticle = styled('article')<{ index: number }>(({ index }) => ({
+  animation: `slideUp 0.4s ${index * 0.08}s both`,
+  opacity: 0,
+  transform: 'translateY(20px)',
+}));
