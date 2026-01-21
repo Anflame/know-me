@@ -10,11 +10,7 @@ const CustomImage: FC<IImageProps> = (imageProps) => {
 
   return (
     <>
-      <StyledImage
-        isLoaded={isLoaded}
-        {...imageProps}
-        onLoadingComplete={() => setIsLoaded(true)}
-      />
+      <StyledImage isLoaded={isLoaded} {...imageProps} onLoad={() => setIsLoaded(true)} />
       {!isLoaded && <StyledSkeleton animation="wave" variant="rectangular" color="secondary" />}
     </>
   );

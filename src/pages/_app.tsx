@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import type { AppProps } from 'next/app';
 import { CssBaseline } from '@mui/material';
-import NextNProgress from 'nextjs-progressbar';
 
 import {
   AuthContextProvider,
   CustomQueryClientProvider,
   CustomThemeProvider,
   ErrorContextProvider,
+  GlobalAnimations,
 } from '@/providers';
 import { Layout } from '@/layouts/Layout';
 import { GlobalOverride } from '@/styles';
@@ -17,9 +17,9 @@ const App: FC<AppProps> = ({ Component, pageProps }) => (
     <CustomQueryClientProvider pageProps={pageProps}>
       <CssBaseline />
       <GlobalOverride />
+      <GlobalAnimations />
       <AuthContextProvider>
         <ErrorContextProvider>
-          <NextNProgress color="#02d43a" />
           <Layout>
             <Component {...pageProps} />
           </Layout>
