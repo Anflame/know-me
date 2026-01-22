@@ -17,7 +17,7 @@ const Category: FC<ICategory> = ({ mentors, title }) => (
     <Container>
       <CustomList view="Grid">
         {mentors.map((item, index) => (
-          <StyledMentorWrapper index={index} key={index}>
+          <StyledMentorWrapper index={index} key={item.id}>
             <MentorCard variant="FullWidth" {...item} />
           </StyledMentorWrapper>
         ))}

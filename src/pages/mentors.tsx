@@ -12,6 +12,7 @@ interface IPropMentorCard {
 export const getServerSideProps: GetServerSideProps<IPropMentorCard> = async ({ query }) => {
   // TODO: выпилить когда будет АПИ
   const filteredMentors: IMentorCard[] = [];
+
   if ('search' in query) {
     const searchParam = query.search as keyof IMentorCard | keyof IUser;
     filteredMentors.push(
@@ -29,7 +30,7 @@ export const getServerSideProps: GetServerSideProps<IPropMentorCard> = async ({ 
   } else {
     const queryArr: { [key: string]: string[] } = {};
     Object.entries(query).forEach(([key, value]) => {
-      const parsedKey = key.replace(/\[\w\]/, '');
+      const parsedKey = key.replace(/\[\w]/, '');
       if (!queryArr[parsedKey]) queryArr[parsedKey] = [];
       queryArr[parsedKey].push(value as string);
     });
