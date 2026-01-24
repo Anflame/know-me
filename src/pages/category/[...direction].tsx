@@ -4,6 +4,7 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { Category } from '@/components/Category';
 import { IMentorCard } from '@/types';
 import { fetcher } from '@/lib/helpers';
+import { SEO } from '@/components/SEO';
 
 interface ICategory {
   mentors: IMentorCard[];
@@ -15,7 +16,7 @@ export const getServerSideProps: GetServerSideProps<ICategory> = async ({ params
 
   if (!paramsDirection) return { notFound: true };
 
-  const result = await fetcher<{ mentors: IMentorCard[] }>(`/api/category/${paramsDirection}`);
+  const result = await fetcher<{ mentors: IMentorCard[] }>(`/category/${paramsDirection}`);
 
   if (result.error || !result.data) return { notFound: true };
 
@@ -24,8 +25,14 @@ export const getServerSideProps: GetServerSideProps<ICategory> = async ({ params
   return { props };
 };
 
-const CategoryPage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = (props) => (
-  <Category {...props} />
+const CategoryPage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({
+  mentors,
+  title,
+}) => (
+  <>
+    <SEO title={title ?? ''} />
+    <Category mentors={mentors} title={title} />
+  </>
 );
 
 export default CategoryPage;

@@ -1,13 +1,13 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
-import Head from 'next/head';
 
 import { FC } from 'react';
 import { fetcher } from '@/lib/helpers';
 import { ICategory } from '@/types';
 import { HomeComponent } from '@/components/HomeComponent';
+import { SEO } from '@/components/SEO';
 
 export const getServerSideProps: GetServerSideProps<{ categories: ICategory[] }> = async () => {
-  const result = await fetcher<ICategory[]>(`/api/categories`);
+  const result = await fetcher<ICategory[]>(`/categories`);
 
   if (result.error || !result.data) return { notFound: true };
 
@@ -16,11 +16,7 @@ export const getServerSideProps: GetServerSideProps<{ categories: ICategory[] }>
 
 const Home: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ categories }) => (
   <>
-    <Head>
-      <title>Know-me</title>
-      <meta name="description" content="Know-me" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-    </Head>
+    <SEO title="Главная" />
     <HomeComponent categories={categories} />
   </>
 );
