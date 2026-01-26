@@ -6,7 +6,7 @@ export const chats: IChat[] = [
     _id: '1',
     title: 'Кличко Виталий',
     alt: 'avatar',
-    image: 'programmer.jpg',
+    image: 'programmer.webp',
     lastMessage:
       'А сегодня в завтрашний день не все могут смотреть. Вернее смотреть могут не только лишь все, мало кто может это делать',
     lastMessageTimeSent: 'Wed Oct 25 2023 17:39:06 GMT+0400',
@@ -15,7 +15,7 @@ export const chats: IChat[] = [
     _id: '2',
     title: 'Кличко Василиса',
     alt: 'avatar',
-    image: 'accountant.jpg',
+    image: 'accountant.webp',
     lastMessage:
       'А сегодня в завтрашний день не все могут смотреть. Вернее смотреть могут не только лишь все, мало кто может это делать',
     lastMessageTimeSent: 'Wed Oct 25 2023 17:39:06 GMT+0400',
@@ -24,7 +24,7 @@ export const chats: IChat[] = [
     _id: '3',
     title: 'Кличко Амина',
     alt: 'avatar',
-    image: 'language.jpg',
+    image: 'language.webp',
     lastMessage:
       'А сегодня в завтрашний день не все могут смотреть. Вернее смотреть могут не только лишь все, мало кто может это делать',
     lastMessageTimeSent: 'Wed Oct 25 2023 17:39:06 GMT+0400',
@@ -33,7 +33,7 @@ export const chats: IChat[] = [
     _id: '4',
     title: 'Кличко Виталий',
     alt: 'avatar',
-    image: 'programmer.jpg',
+    image: 'programmer.webp',
     lastMessage:
       'А сегодня в завтрашний день не все могут смотреть. Вернее смотреть могут не только лишь все, мало кто может это делать',
     lastMessageTimeSent: 'Wed Oct 25 2023 17:39:06 GMT+0400',
@@ -42,7 +42,7 @@ export const chats: IChat[] = [
     _id: '5',
     title: 'Кличко Василиса',
     alt: 'avatar',
-    image: 'accountant.jpg',
+    image: 'accountant.webp',
     lastMessage:
       'А сегодня в завтрашний день не все могут смотреть. Вернее смотреть могут не только лишь все, мало кто может это делать',
     lastMessageTimeSent: 'Wed Oct 25 2023 17:39:06 GMT+0400',
@@ -51,7 +51,7 @@ export const chats: IChat[] = [
     _id: '6',
     title: 'Кличко Амина',
     alt: 'avatar',
-    image: 'language.jpg',
+    image: 'language.webp',
     lastMessage:
       'А сегодня в завтрашний день не все могут смотреть. Вернее смотреть могут не только лишь все, мало кто может это делать',
     lastMessageTimeSent: 'Wed Oct 25 2023 17:39:06 GMT+0400',
@@ -60,7 +60,7 @@ export const chats: IChat[] = [
     _id: '7',
     title: 'Кличко Амина',
     alt: 'avatar',
-    image: 'language.jpg',
+    image: 'language.webp',
     lastMessage:
       'А сегодня в завтрашний день не все могут смотреть. Вернее смотреть могут не только лишь все, мало кто может это делать',
     lastMessageTimeSent: 'Wed Oct 25 2023 17:39:06 GMT+0400',
@@ -69,7 +69,7 @@ export const chats: IChat[] = [
     _id: '8',
     title: 'Кличко Амина',
     alt: 'avatar',
-    image: 'language.jpg',
+    image: 'language.webp',
     lastMessage:
       'А сегодня в завтрашний день не все могут смотреть. Вернее смотреть могут не только лишь все, мало кто может это делать',
     lastMessageTimeSent: 'Wed Oct 25 2023 17:39:06 GMT+0400',
@@ -78,7 +78,7 @@ export const chats: IChat[] = [
     _id: '9',
     title: 'Кличко Амина',
     alt: 'avatar',
-    image: 'language.jpg',
+    image: 'language.webp',
     lastMessage:
       'А сегодня в завтрашний день не все могут смотреть. Вернее смотреть могут не только лишь все, мало кто может это делать',
     lastMessageTimeSent: 'Wed Oct 25 2023 17:39:06 GMT+0400',
@@ -87,7 +87,7 @@ export const chats: IChat[] = [
     _id: '10',
     title: 'Кличко Амина',
     alt: 'avatar',
-    image: 'language.jpg',
+    image: 'language.webp',
     lastMessage:
       'А сегодня в завтрашний день не все могут смотреть. Вернее смотреть могут не только лишь все, мало кто может это делать',
     lastMessageTimeSent: 'Wed Oct 25 2023 17:39:06 GMT+0400',
@@ -96,7 +96,7 @@ export const chats: IChat[] = [
     _id: '11',
     title: 'Кличко Амина',
     alt: 'avatar',
-    image: 'language.jpg',
+    image: 'language.webp',
     lastMessage:
       'А сегодня в завтрашний день не все могут смотреть. Вернее смотреть могут не только лишь все, мало кто может это делать',
     lastMessageTimeSent: 'Wed Oct 25 2023 17:39:06 GMT+0400',

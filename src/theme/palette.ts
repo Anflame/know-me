@@ -20,6 +20,7 @@ export const base: PaletteOptions = {
 export const customPalette: PaletteOptions = {
   primary: {
     main: main.main,
+    dark: main.dark,
   },
   secondary: {
     main: main.alternative,

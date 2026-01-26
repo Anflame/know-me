@@ -46,8 +46,8 @@ const theme = createTheme({
   components: componentsOverride,
 });
 
-const CustomThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
-};
+const CustomThemeProvider: FC<{ children: ReactNode }> = ({ children }) => (
+  <ThemeProvider theme={theme}>{children}</ThemeProvider>
+);
 
 export default CustomThemeProvider;

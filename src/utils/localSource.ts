@@ -6,9 +6,7 @@ export const localSource = () => {
     storage?.setItem(key, value);
   };
 
-  const get = (key: string) => {
-    return storage?.getItem(key);
-  };
+  const get = (key: string) => storage?.getItem(key);
 
   const remove = (key: string) => {
     storage?.removeItem(key);

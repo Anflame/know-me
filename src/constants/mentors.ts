@@ -5,7 +5,7 @@ export const mentors: IMentorCard[] = [
     id: 1,
     alt: 'image',
     title: 'Обучение программированию',
-    image: 'programmer.jpg',
+    image: 'programmer.webp',
     group: 'it_technology',
     direction: 'programming',
     user: {
@@ -32,7 +32,7 @@ export const mentors: IMentorCard[] = [
     alt: 'image',
     direction: 'accountant',
     group: 'accountant',
-    image: 'accountant.jpg',
+    image: 'accountant.webp',
     title: 'Обучение бух. учету',
     user: {
       id: 2,
@@ -55,7 +55,7 @@ export const mentors: IMentorCard[] = [
     title: 'Обучение английскому',
     direction: 'language',
     group: 'language',
-    image: 'languageTeacher.jpg',
+    image: 'languageTeacher.webp',
     user: {
       id: 3,
       name: 'Monica',
@@ -76,7 +76,7 @@ export const mentors: IMentorCard[] = [
     alt: 'image',
     direction: 'accountant',
     group: 'accountant',
-    image: 'accountant.jpg',
+    image: 'accountant.webp',
     title: 'Обучение бух. учету',
     user: {
       id: 4,
@@ -97,7 +97,7 @@ export const mentors: IMentorCard[] = [
     id: 5,
     alt: 'image',
     title: 'Обучение английскому',
-    image: 'languageTeacher.jpg',
+    image: 'languageTeacher.webp',
     direction: 'language',
     group: 'language',
     user: {
@@ -119,7 +119,7 @@ export const mentors: IMentorCard[] = [
     id: 6,
     alt: 'image',
     title: 'Обучение программированию',
-    image: 'programmer.jpg',
+    image: 'programmer.webp',
     direction: 'programming',
     group: 'it_technology',
     user: {
@@ -147,7 +147,7 @@ export const mentors: IMentorCard[] = [
     direction: 'programming',
     group: 'it_technology',
     title: 'Обучение программированию',
-    image: 'programmer.jpg',
+    image: 'programmer.webp',
     user: {
       id: 7,
       name: 'Albert',
@@ -173,7 +173,7 @@ export const mentors: IMentorCard[] = [
     title: 'Обучение программированию',
     direction: 'programming',
     group: 'it_technology',
-    image: 'programmer.jpg',
+    image: 'programmer.webp',
     user: {
       id: 8,
       name: 'Albert',
@@ -199,7 +199,7 @@ export const mentors: IMentorCard[] = [
     title: 'Обучение программированию',
     direction: 'programming',
     group: 'it_technology',
-    image: 'programmer.jpg',
+    image: 'programmer.webp',
     user: {
       id: 9,
       name: 'Albert',
@@ -225,7 +225,7 @@ export const mentors: IMentorCard[] = [
     title: 'Обучение программированию',
     direction: 'programming',
     group: 'it_technology',
-    image: 'programmer.jpg',
+    image: 'programmer.webp',
     user: {
       id: 9,
       name: 'Albert',

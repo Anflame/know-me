@@ -37,6 +37,8 @@ const AuthForm: FC<IAuthFormProps> = ({ isSignUp }) => {
     resolver: yupResolver<ILoginForm | ISignUpForm>(isSignUp ? signUpScheme : logInScheme),
   });
 
+  const typedSignUpErrors = errors as FieldErrors<ISignUpForm>;
+
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   return (
@@ -59,8 +61,8 @@ const AuthForm: FC<IAuthFormProps> = ({ isSignUp }) => {
           data-testid="name-field"
           placeholder="UserName"
           fullWidth
-          isError={!!(errors as FieldErrors<ISignUpForm>).name}
-          errorMessage={(errors as FieldErrors<ISignUpForm>).name?.message}
+          isError={!!typedSignUpErrors.name}
+          errorMessage={typedSignUpErrors.name?.message}
         />
       )}
       <FormTextField

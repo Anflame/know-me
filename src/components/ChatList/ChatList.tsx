@@ -9,19 +9,17 @@ export interface IChatListProps {
   setSelectedId: (chatId: string) => void;
 }
 
-const ChatList: FC<IChatListProps> = ({ chats, setSelectedId }) => {
-  return (
-    <Stack
-      style={{
-        width: '30%',
-        overflowY: 'auto',
-      }}
-    >
-      {chats.map(({ _id, ...item }) => (
-        <ChatListItem key={_id} _id={_id} {...item} setSelectedId={setSelectedId} />
-      ))}
-    </Stack>
-  );
-};
+const ChatList: FC<IChatListProps> = ({ chats, setSelectedId }) => (
+  <Stack
+    style={{
+      width: '30%',
+      overflowY: 'auto',
+    }}
+  >
+    {chats.map(({ _id, ...item }) => (
+      <ChatListItem key={_id} _id={_id} {...item} setSelectedId={setSelectedId} />
+    ))}
+  </Stack>
+);
 
 export default ChatList;

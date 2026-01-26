@@ -1,9 +1,16 @@
 import { FC } from 'react';
-import { Typography, Grow } from '@mui/material';
+import { Typography } from '@mui/material';
 
 import type { ICategory } from '@/types';
 
-import { StyledWrapper, StyledContent, StyledDescription, StyledLink, StyledImage } from './styles';
+import {
+  StyledWrapper,
+  StyledContent,
+  StyledDescription,
+  StyledLink,
+  StyledImage,
+  StyledArticle,
+} from './styles';
 
 const CategoryCard: FC<Omit<ICategory, 'id'> & { index: number }> = ({
   description,
@@ -13,9 +20,9 @@ const CategoryCard: FC<Omit<ICategory, 'id'> & { index: number }> = ({
   alt,
   index,
 }) => (
-  <Grow in timeout={300 * index}>
+  <StyledArticle index={index}>
     <StyledLink href={`/category/${slug}`} scroll={false}>
-      <StyledWrapper>
+      <StyledWrapper component="article">
         <StyledImage src={`/static/${image}`} alt={alt} fill sizes="100%" />
         <StyledContent>
           <Typography variant="h6">{title}</Typography>
@@ -23,7 +30,7 @@ const CategoryCard: FC<Omit<ICategory, 'id'> & { index: number }> = ({
         </StyledContent>
       </StyledWrapper>
     </StyledLink>
-  </Grow>
+  </StyledArticle>
 );
 
 export default CategoryCard;
