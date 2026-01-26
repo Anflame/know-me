@@ -1,13 +1,16 @@
 import { createContext } from 'react';
+import { TAlertType } from '@/types';
 
-interface ErrorContextType {
+interface AlertContextType {
   message: string;
-  showError: (message: string) => void;
+  type: TAlertType;
+  showAlert: (message: string, type: TAlertType) => void;
 }
 
-export const defaultErrorContext: ErrorContextType = {
+export const defaultAlertContext: AlertContextType = {
   message: '',
-  showError: () => {},
+  type: 'success',
+  showAlert: () => {},
 };
 
-export const ErrorContext = createContext<ErrorContextType>(defaultErrorContext);
+export const AlertContext = createContext<AlertContextType>(defaultAlertContext);

@@ -26,6 +26,9 @@ export const GlobalOverride = () => {
               },
             },
           },
+          '#nprogress .bar': {
+            background: palette.success.main,
+          },
         },
         '::selection': {
           backgroundColor: alpha(palette.text.secondary, 0.2),

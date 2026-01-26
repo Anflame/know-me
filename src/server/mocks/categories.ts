@@ -1,4 +1,3 @@
-// TODO: выпилить когда будет апи
 import { ICategory } from '@/types';
 
 export const categories: ICategory[] = [

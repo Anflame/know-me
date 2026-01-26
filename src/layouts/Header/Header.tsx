@@ -14,7 +14,6 @@ import {
 import { AuthContext, localSource } from '@/utils';
 import { IsSignUp, Login, SignUp } from '@/types';
 import { filters } from '@/constants/filters';
-import { mentors } from '@/constants/mentors';
 import { Auth } from '@/components/Auth';
 import { BackLink } from '@/components/BackLink';
 import { FilterPanel } from '@/components/FilterPanel';
@@ -23,6 +22,8 @@ import { MentorCard } from '@/components/MentorCard';
 import { SearchPanel } from '@/components/SearchPanel';
 import { Menu } from '@/components/Menu';
 
+import { useQuery } from 'react-query';
+import { fetchMentors } from '@/api/mentors';
 import { getIsSignUp } from './utils';
 import { StyledContainer, StyledWrapper, StyledImage, StyledPanelsWrapper } from './styles';
 
@@ -35,6 +36,12 @@ const Header: FC = () => {
   const { push, pathname } = useRouter();
   const { changeAuth, isAuth } = useContext(AuthContext);
   const isMobile = useMediaQuery('(max-width: 768px)');
+
+  const { data: mentors, isLoading } = useQuery({
+    queryKey: ['mentors-home'],
+    queryFn: () => fetchMentors(),
+    staleTime: 5 * 60 * 1000,
+  });
 
   const handleAuth = (type: IsSignUp) => {
     setIsSignUp(getIsSignUp(type));
@@ -82,11 +89,13 @@ const Header: FC = () => {
         </Stack>
         {pathname === '/' ? (
           <>
-            <HeaderSwiper>
-              {mentors.map((item) => (
-                <MentorCard key={item.id} {...item} variant="Swiper" />
-              ))}
-            </HeaderSwiper>
+            {!isLoading && (
+              <HeaderSwiper>
+                {mentors?.map((item) => (
+                  <MentorCard key={item.id} {...item} variant="Swiper" />
+                ))}
+              </HeaderSwiper>
+            )}
             <StyledPanelsWrapper>
               <SearchPanel />
               <FilterPanel filterGroups={filters} />
