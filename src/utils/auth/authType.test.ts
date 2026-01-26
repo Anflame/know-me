@@ -1,5 +1,5 @@
 import { IAuthConfig } from '@/types';
-import { authType } from '@/utils/auth';
+import { authType } from '@/utils/auth/authType';
 
 describe('auth test', () => {
   const config: IAuthConfig = {

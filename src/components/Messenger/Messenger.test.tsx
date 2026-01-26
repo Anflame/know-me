@@ -19,7 +19,7 @@ jest.mock('../Chat', () => ({
   Chat: ({ id }: IChatProps) => <div>Chat mock: {id}</div>,
 }));
 
-jest.mock('./style', () => ({
+jest.mock('./styles', () => ({
   StyledDrawer: ({ open, onClose, children }: DrawerProps) =>
     open ? (
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/interactive-supports-focus

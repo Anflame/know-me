@@ -26,13 +26,13 @@ const config: Config = {
   clearMocks: true,
 
   // Indicates whether the coverage information should be collected while executing the test
-  // collectCoverage: false,
+  collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
-  // coverageDirectory: undefined,
+  coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
@@ -51,7 +51,14 @@ const config: Config = {
   // ],
 
   // An object that configures minimum threshold enforcement for coverage results
-  // coverageThreshold: undefined,
+  coverageThreshold: {
+    global: {
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: 80,
+    },
+  },
 
   // A path to a custom dependency extractor
   // dependencyExtractor: undefined,
@@ -104,13 +111,34 @@ const config: Config = {
     '^@test/(.*)$': '<rootDir>/__test__/$1',
   },
   collectCoverageFrom: [
-    'src/utils/auth.ts',
-    '!**/*.test.{ts,tsx}',
-    'src/components/Messenger/Messenger.tsx',
-    'src/components/Menu/Menu.tsx',
-    'src/components/MentorList/MentorList.tsx',
-    'src/components/Auth/Auth.tsx',
-    'src/components/MentorCard/MentorCard.tsx',
+    'src/**/*.{ts,tsx}',
+    '!src/**/*.d.ts',
+    '!src/**/*.test.{ts,tsx}',
+    '!src/**/__tests__/**',
+    '!**/node_modules/**',
+    '!src/providers/**',
+    '!src/contexts/**',
+    '!src/hooks/**',
+    '!src/lib/**',
+    '!src/types/**',
+    '!src/constants/**',
+    '!src/pages/**',
+    '!src/theme/**',
+    '!src/layouts/**',
+    '!**/index.ts',
+    '!**/styles.ts',
+    '!**/types.ts',
+    '!src/types.ts',
+    '!src/static/**',
+    '!src/styles/**',
+
+    '!src/components/NotFound/**',
+    '!src/components/BackLink/**',
+    '!src/components/Category/**',
+    '!src/components/CustomSwiper/**',
+    '!src/components/HeaderSwiper/**',
+    '!src/components/Mentor/**',
+    '!src/components/ChatList/**',
   ],
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],

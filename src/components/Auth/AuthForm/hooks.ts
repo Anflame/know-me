@@ -6,6 +6,7 @@ import { AxiosError } from 'axios';
 import type { IAuthConfig, ITOkens } from '@/types';
 import { AuthContext, ErrorContext, localSource } from '@/utils';
 
+import { stringify } from 'qs';
 import type { ILoginForm, ISignUpForm } from './types';
 
 export const useAuth = (isSignUp: boolean) => {
@@ -20,7 +21,7 @@ export const useAuth = (isSignUp: boolean) => {
 
   const saveAuthTokens = (data?: ITOkens) => {
     if (data && 'access_token' in data && 'refresh_token' in data) {
-      set('tokens', JSON.stringify(data));
+      set('tokens', stringify(data));
       changeAuth(true);
     }
   };
@@ -28,7 +29,7 @@ export const useAuth = (isSignUp: boolean) => {
   const handleAuth = async (validatedForm: ILoginForm | ISignUpForm) => {
     mutate({ ...validatedForm, isSignUp });
     // TODO: удалить после теста API
-    set('tokens', JSON.stringify({ access_token: 'dsadadajkldjlajlkda' }));
+    set('tokens', stringify({ access_token: 'dsadadajkldjlajlkda' }));
     changeAuth(true);
   };
 

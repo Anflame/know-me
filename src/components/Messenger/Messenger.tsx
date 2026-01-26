@@ -5,7 +5,7 @@ import type { IChat, UserChats } from '@/types';
 
 import { Chat } from '../Chat';
 import { ChatList } from '../ChatList';
-import { StyledCloseBtn, StyledDrawer, StyledWrapper } from './style';
+import { StyledCloseBtn, StyledDrawer, StyledWrapper } from './styles';
 
 const Messenger: FC<UserChats> = ({ chats, userImage }) => {
   const [isOpen, setIsOpen] = useState(true);

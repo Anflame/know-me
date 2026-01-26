@@ -18,8 +18,8 @@ export const useFilters = (
     setSelectableFilters(changeCheckedFilter);
   };
 
-  const handleFilter = () => {
-    push(`/mentors?${transformFiltersToURLParams(selectableFilters)}`, '', { scroll: false });
+  const handleFilter = async () => {
+    await push(`/mentors?${transformFiltersToURLParams(selectableFilters)}`, '', { scroll: false });
     closeFilters(false);
   };
 

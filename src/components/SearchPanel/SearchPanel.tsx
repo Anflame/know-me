@@ -26,10 +26,11 @@ const SearchPanel: FC = () => {
           color="secondary"
           fullWidth
           value={value}
+          data-testid="input"
           onChange={(e) => setValue(e.target.value)}
         />
       </Box>
-      <StyledIconButton type="submit">
+      <StyledIconButton type="submit" data-testid="submit-btn">
         <SearchIcon color="secondary" />
       </StyledIconButton>
     </StyledForm>
