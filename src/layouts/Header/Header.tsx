@@ -57,7 +57,13 @@ const Header: FC = () => {
 
   return (
     <StyledWrapper ref={rootRef} pathName={pathname}>
-      <StyledImage src="/static/header-background.webp" alt="background-image" fill priority />
+      <StyledImage
+        src="/static/header-background.webp"
+        alt="background-image"
+        fill
+        fetchPriority="high"
+        priority
+      />
       <StyledContainer>
         <Stack flexDirection="row" justifyContent="space-between">
           <IconButton onClick={() => push('/')}>
