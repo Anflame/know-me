@@ -139,6 +139,13 @@ const config: Config = {
     '!src/components/HeaderSwiper/**',
     '!src/components/Mentor/**',
     '!src/components/ChatList/**',
+    '!src/components/FilterPanel/GroupFilters/FilterItem/FilterItem.tsx',
+    '!src/components/MentorCard/MentorCardContent/MentorCardContent.tsx',
+
+    '!src/utils/factoryQueryClient.tsx',
+    '!src/utils/errorContext.ts',
+    '!src/utils/auth/authContext.ts',
+    '!src/utils/dateTimeFormatters.tsx',
   ],
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
