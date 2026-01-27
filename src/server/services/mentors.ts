@@ -2,6 +2,7 @@ import { mentors } from '@/server/mocks';
 import { IMentorCard } from '@/types';
 import { FilterParams, IFilters } from '@/server/types/mentors';
 import { isEmptyObject } from '@/utils/object';
+import { categories } from '@/server/mocks/categories';
 
 export const getMentor = async (id: number) => mentors.find((item) => item.id === id);
 export const getMentors = async () => mentors;
@@ -15,13 +16,37 @@ export const getMentorsWithParams = async (filterParams?: FilterParams) => {
 
   if (filterParams && 'search' in filterParams) {
     return mentors.filter((item) => {
-      const arr = Object.keys(item);
+      const arr = Object.entries(item);
       const regexp = new RegExp(filterParams.search, 'gi');
 
-      return arr.find(
-        (key) =>
-          regexp.test(String(item[key as keyof IMentorCard])) || regexp.test(String(item.user))
-      );
+      let result = false;
+
+      arr.forEach(([key, value]) => {
+        if (key === 'direction') {
+          const directionDisplayName = categories.find((cat) => cat.slug === value)?.title;
+          if (!directionDisplayName) return;
+          if (regexp.test(directionDisplayName as string)) result = true;
+          return;
+        }
+        if (Array.isArray(value)) {
+          value.forEach((array) => {
+            Object.entries(array).forEach(([, arrValue]) => {
+              if (regexp.test(arrValue as string)) result = true;
+            });
+          });
+          return;
+        }
+        if (typeof value === 'object') {
+          Object.entries(value).forEach(([, arrValue]) => {
+            if (regexp.test(arrValue as string)) result = true;
+          });
+          return;
+        }
+
+        if (regexp.test(value as string)) result = true;
+      });
+
+      return result;
     });
   }
 
