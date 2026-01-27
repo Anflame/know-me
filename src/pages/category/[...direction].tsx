@@ -8,6 +8,7 @@ import { SEO } from '@/components/SEO';
 
 interface ICategory {
   mentors: IMentorCard[];
+  slug?: string | null;
   title: string | null;
 }
 
@@ -16,7 +17,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const paths =
     categories.data?.map((direction) => ({
-      params: { direction: [direction.title as string] },
+      params: { direction: [direction.slug as string] },
     })) || [];
 
   return {
