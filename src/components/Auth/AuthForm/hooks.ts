@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { fetchAuth } from '@/api/auth';
 import { useMutation } from 'react-query';
 import { AxiosError } from 'axios';
+import { stringify } from 'qs';
 
 import type { IAuthConfig, ITOkens } from '@/types';
 import { AuthContext, AlertContext, localSource } from '@/utils';
@@ -20,7 +21,7 @@ export const useAuth = (isSignUp: boolean, onClose: () => void) => {
 
   const saveAuthTokens = (data?: ITOkens) => {
     if (data && 'accessToken' in data && 'refreshToken' in data) {
-      set('tokens', JSON.stringify(data));
+      set('tokens', stringify(data));
       changeAuth(true);
       onClose();
       showAlert('Авторизация прошла успешна', 'success');

@@ -49,6 +49,7 @@ const AuthForm: FC<IAuthFormProps> = ({ isSignUp, onClose }) => {
         name="email"
         label="Email"
         placeholder="example@email.com"
+        data-testid="email-field"
         fullWidth
         isError={!!errors.email}
         errorMessage={errors.email?.message}
@@ -58,6 +59,7 @@ const AuthForm: FC<IAuthFormProps> = ({ isSignUp, onClose }) => {
           control={control}
           name="name"
           label="Your Name"
+          data-testid="name-field"
           placeholder="UserName"
           fullWidth
           isError={!!typedSignUpErrors.name}
@@ -70,6 +72,7 @@ const AuthForm: FC<IAuthFormProps> = ({ isSignUp, onClose }) => {
         label="Password"
         placeholder="Password123"
         fullWidth
+        data-testid="password-field"
         isError={!!errors.password}
         errorMessage={errors.password?.message}
         type={showPassword ? 'text' : 'password'}
@@ -79,19 +82,25 @@ const AuthForm: FC<IAuthFormProps> = ({ isSignUp, onClose }) => {
               <IconButton
                 aria-label="toggle password visibility"
                 onClick={handleClickShowPassword}
+                data-testid="toggle-password"
                 onMouseDown={(e) => e.preventDefault()}
               >
-                {showPassword ? <VisibilityOff /> : <Visibility />}
+                {showPassword ? (
+                  <VisibilityOff data-testid="icon-visibility-on" />
+                ) : (
+                  <Visibility data-testid="icon-visibility-off" />
+                )}
               </IconButton>
             </InputAdornment>
           ),
         }}
       />
-      <StyledButton fullWidth type="submit" disabled={isLoading}>
+      <StyledButton fullWidth type="submit" disabled={isLoading} data-testid="sendBtn">
         {isSignUp ? 'signUp' : 'login'}
         {isLoading && (
           <CircularProgress
             size="25px"
+            data-testid="circular-progress"
             style={{
               position: 'absolute',
             }}

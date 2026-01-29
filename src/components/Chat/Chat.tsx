@@ -18,8 +18,8 @@ import {
   StyledWrapper,
 } from './styles';
 
-interface IChatProps {
-  id: string;
+export interface IChatProps {
+  id?: string;
   companionImage: Pick<IChat, 'title' | 'alt' | 'image'>;
   userImage: IUserImage;
 }
@@ -62,7 +62,6 @@ const Chat: FC<IChatProps> = ({ id, companionImage, userImage }) => {
           <Stack gap={spacing(2)}>
             {messages.map((item, index) => (
               <Message
-                // eslint-disable-next-line no-underscore-dangle
                 key={item._id}
                 message={messages}
                 index={index}
@@ -85,7 +84,7 @@ const Chat: FC<IChatProps> = ({ id, companionImage, userImage }) => {
                 fullWidth
               />
             </Box>
-            <StyledSendIcon type="submit">
+            <StyledSendIcon type="submit" data-testid="submit-button">
               <SendIcon color={errors.newMessage?.message ? 'error' : 'secondary'} />
             </StyledSendIcon>
           </StyledFormWrapper>

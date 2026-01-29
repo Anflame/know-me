@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  turbopack: {
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
+      },
+    },
+  },
+
   webpack(config, { isServer }) {
     config.module.rules.push({
       test: /\.svg$/i,
@@ -10,7 +19,6 @@ const nextConfig = {
     if (!isServer) {
       config.resolve.fallback = { fs: false, path: false };
     }
-
     return config;
   },
 };

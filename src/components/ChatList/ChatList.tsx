@@ -4,7 +4,7 @@ import { Stack } from '@mui/material';
 import type { IChat } from '@/types';
 import { ChatListItem } from './ChatListItem';
 
-interface IChatListProps {
+export interface IChatListProps {
   chats: IChat[];
   setSelectedId: (chatId: string) => void;
 }

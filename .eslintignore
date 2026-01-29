@@ -1,7 +1,5 @@
 lint-staged.config.js
-.eslintrc.js
 next.config.js
 .next
 public
 node_modules
-yarn.lock

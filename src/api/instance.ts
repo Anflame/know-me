@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 import { localSource } from '@/utils';
-import { ITOkens } from '@/types';
 
+import { parse } from 'qs';
 import getTransformers from './transformers';
 
 const defaultConfig = {
@@ -14,7 +14,7 @@ const api = axios.create(defaultConfig);
 
 api.interceptors.request.use((config) => {
   const { get } = localSource();
-  const token = get('tokens') && (JSON.parse(get('tokens') as string) as ITOkens).access_token;
+  const token = get('tokens') && parse(get('tokens') as string).access_token;
 
   // eslint-disable-next-line no-param-reassign
   config.headers.Authorization = token ? `Bearer ${token}` : '';

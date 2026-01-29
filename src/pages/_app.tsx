@@ -11,7 +11,7 @@ import {
 } from '@/providers';
 import { Layout } from '@/layouts/Layout';
 import { GlobalOverride } from '@/styles';
-import { NProgressHandler } from '@/components/NProgresHandler';
+import { NProgressHandler } from '@/components/NProgressHandler';
 
 const App: FC<AppProps> = ({ Component, pageProps }) => (
   <CustomThemeProvider>

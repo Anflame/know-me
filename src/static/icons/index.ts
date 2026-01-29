@@ -1,3 +1,1 @@
-import NotFoundIcon from './notFound.svg';
-
-export { NotFoundIcon };
+export { default as NotFoundIcon } from './notFound.svg';

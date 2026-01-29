@@ -20,7 +20,7 @@ const Menu: FC<IMenuProps> = ({ handleAuth }) => {
 
   return (
     <>
-      <IconButton onClick={() => setIsOpen(true)}>
+      <IconButton onClick={() => setIsOpen(true)} data-testid="icon-button-open">
         <StyledMenuIcon />
       </IconButton>
 
@@ -30,7 +30,7 @@ const Menu: FC<IMenuProps> = ({ handleAuth }) => {
         onClose={() => setIsOpen(false)}
         onOpen={() => setIsOpen(true)}
       >
-        <StyledIconButton onClick={() => setIsOpen(false)}>
+        <StyledIconButton onClick={() => setIsOpen(false)} data-testid="icon-button-close">
           <StyledCloseIcon />
         </StyledIconButton>
         <StyledWrapper>

@@ -30,7 +30,12 @@ const FilterPanel: FC<IFilterPanelProps> = ({ filterGroups }) => {
 
   return (
     <StyledWrapper>
-      <StyledButton variant="text" onClick={() => setIsOpen(true)} color="primary">
+      <StyledButton
+        variant="text"
+        onClick={() => setIsOpen(true)}
+        color="primary"
+        data-testid="open-drawer"
+      >
         <Stack flexDirection="row" gap={spacing(1)}>
           {isTablet && <Typography ml={spacing(1)}>Filters</Typography>}
           <FilterListIcon />
@@ -41,6 +46,7 @@ const FilterPanel: FC<IFilterPanelProps> = ({ filterGroups }) => {
         open={isOpen}
         onClose={() => setIsOpen(false)}
         onOpen={() => setIsOpen(true)}
+        data-testid="drawer"
       >
         <StyledFilterGroups as="form">
           <StyledHeading variant="h6">Filters</StyledHeading>
@@ -48,7 +54,7 @@ const FilterPanel: FC<IFilterPanelProps> = ({ filterGroups }) => {
             <GroupFilters key={item.id} {...item} changeSelectFilter={changeSelectFilter} />
           ))}
           <StyledButtonWrapper>
-            <Button fullWidth onClick={handleFilter}>
+            <Button fullWidth onClick={handleFilter} data-testid="submit-btn">
               Применить
             </Button>
           </StyledButtonWrapper>

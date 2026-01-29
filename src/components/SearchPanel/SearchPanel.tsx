@@ -11,9 +11,9 @@ const SearchPanel: FC = () => {
 
   const { push } = useRouter();
 
-  const handleSubmit = (e: FormEvent<HTMLDivElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLDivElement>) => {
     e.preventDefault();
-    push(`/mentors?${stringify({ search: value })}`, '', {
+    await push(`/mentors?${stringify({ search: value })}`, '', {
       scroll: false,
     });
   };
@@ -26,10 +26,11 @@ const SearchPanel: FC = () => {
           color="secondary"
           fullWidth
           value={value}
+          data-testid="input"
           onChange={(e) => setValue(e.target.value)}
         />
       </Box>
-      <StyledIconButton type="submit">
+      <StyledIconButton type="submit" data-testid="submit-btn">
         <SearchIcon color="secondary" />
       </StyledIconButton>
     </StyledForm>

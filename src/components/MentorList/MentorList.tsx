@@ -2,8 +2,8 @@ import { FC } from 'react';
 import { Container, Stack, Typography } from '@mui/material';
 
 import { MentorCard } from '@/components/MentorCard';
-import type { IMentorCard } from '@/types';
 import { CustomList } from '@/ui-components';
+import type { IMentorCard } from '@/types';
 
 interface IMentorListProps {
   propMentors: IMentorCard[];
