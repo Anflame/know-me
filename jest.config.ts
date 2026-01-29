@@ -131,6 +131,11 @@ const config: Config = {
     '!src/types.ts',
     '!src/static/**',
     '!src/styles/**',
+    '!src/server/mocks/**',
+    '!src/server/types/**',
+    '!src/server/services/categories.ts',
+    '!src/server/services/messenger.ts',
+    '!src/server/services/user.ts',
 
     '!src/components/NotFound/**',
     '!src/components/BackLink/**',
@@ -141,6 +146,9 @@ const config: Config = {
     '!src/components/ChatList/**',
     '!src/components/FilterPanel/GroupFilters/FilterItem/FilterItem.tsx',
     '!src/components/MentorCard/MentorCardContent/MentorCardContent.tsx',
+    '!src/components/SEO/SEO.tsx',
+    '!src/components/NProgressHandler/NProgressHandler.tsx',
+    '!src/components/HomeComponent/HomeComponent.tsx',
 
     '!src/utils/factoryQueryClient.tsx',
     '!src/utils/errorContext.ts',

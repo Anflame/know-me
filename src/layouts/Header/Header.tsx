@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState, useContext } from 'react';
+import React, { FC, useRef, useState, useContext, useMemo, lazy } from 'react';
 import { useRouter } from 'next/router';
 import {
   useMediaQuery,
@@ -14,17 +14,29 @@ import {
 import { AuthContext, localSource } from '@/utils';
 import { IsSignUp, Login, SignUp } from '@/types';
 import { filters } from '@/constants/filters';
-import { mentors } from '@/constants/mentors';
 import { Auth } from '@/components/Auth';
 import { BackLink } from '@/components/BackLink';
 import { FilterPanel } from '@/components/FilterPanel';
-import { HeaderSwiper } from '@/components/HeaderSwiper';
 import { MentorCard } from '@/components/MentorCard';
 import { SearchPanel } from '@/components/SearchPanel';
 import { Menu } from '@/components/Menu';
 
+import { useQuery } from 'react-query';
+import { fetchMentors } from '@/api/mentors';
 import { getIsSignUp } from './utils';
-import { StyledContainer, StyledWrapper, StyledImage, StyledPanelsWrapper } from './styles';
+import {
+  StyledContainer,
+  StyledWrapper,
+  StyledImage,
+  StyledPanelsWrapper,
+  StyledHeaderSkeleton,
+} from './styles';
+
+const LazyHeaderSwiper = lazy(() =>
+  import('@/components/HeaderSwiper').then((mod) => ({
+    default: mod.HeaderSwiper,
+  }))
+);
 
 const Header: FC = () => {
   const rootRef = useRef(null);
@@ -35,6 +47,12 @@ const Header: FC = () => {
   const { push, pathname } = useRouter();
   const { changeAuth, isAuth } = useContext(AuthContext);
   const isMobile = useMediaQuery('(max-width: 768px)');
+
+  const { data: mentors, isLoading } = useQuery({
+    queryKey: ['mentors-home'],
+    queryFn: () => fetchMentors(),
+    staleTime: 5 * 60 * 1000,
+  });
 
   const handleAuth = (type: IsSignUp) => {
     setIsSignUp(getIsSignUp(type));
@@ -48,9 +66,26 @@ const Header: FC = () => {
     changeAuth(false);
   };
 
+  const slider = useMemo(() => {
+    if (isLoading) return <StyledHeaderSkeleton />;
+    return (
+      <LazyHeaderSwiper>
+        {mentors?.map((item) => (
+          <MentorCard key={item.id} {...item} variant="Swiper" />
+        ))}
+      </LazyHeaderSwiper>
+    );
+  }, [isLoading, mentors]);
+
   return (
     <StyledWrapper ref={rootRef} pathName={pathname}>
-      <StyledImage src="/static/header-background.webp" alt="background-image" fill priority />
+      <StyledImage
+        src="/static/header-background.webp"
+        alt="background-image"
+        fill
+        fetchPriority="high"
+        priority
+      />
       <StyledContainer>
         <Stack flexDirection="row" justifyContent="space-between">
           <IconButton onClick={() => push('/')}>
@@ -82,11 +117,7 @@ const Header: FC = () => {
         </Stack>
         {pathname === '/' ? (
           <>
-            <HeaderSwiper>
-              {mentors.map((item) => (
-                <MentorCard key={item.id} {...item} variant="Swiper" />
-              ))}
-            </HeaderSwiper>
+            {slider}
             <StyledPanelsWrapper>
               <SearchPanel />
               <FilterPanel filterGroups={filters} />

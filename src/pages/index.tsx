@@ -1,25 +1,23 @@
-import { NextPage } from 'next';
-import Head from 'next/head';
-import { Container } from '@mui/material';
+import { GetStaticProps, InferGetServerSidePropsType } from 'next';
 
-import { CategoryCard } from '@/components/CategoryCard';
-import { CustomList } from '@/ui-components/';
-import { categories } from '@/constants/categories';
+import { FC } from 'react';
+import { fetcher } from '@/lib/helpers';
+import { ICategory } from '@/types';
+import { HomeComponent } from '@/components/HomeComponent';
+import { SEO } from '@/components/SEO';
 
-const Home: NextPage = () => (
+export const getStaticProps: GetStaticProps<{ categories: ICategory[] }> = async () => {
+  const result = await fetcher<ICategory[]>(`/categories`);
+
+  if (result.error || !result.data) return { notFound: true };
+
+  return { props: { categories: result.data }, revalidate: 3000 };
+};
+
+const Home: FC<InferGetServerSidePropsType<typeof getStaticProps>> = ({ categories }) => (
   <>
-    <Head>
-      <title>Know-me</title>
-      <meta name="description" content="Know-me" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-    </Head>
-    <Container>
-      <CustomList view="Grid">
-        {categories.map(({ id, ...item }, index) => (
-          <CategoryCard key={id} {...item} index={index} />
-        ))}
-      </CustomList>
-    </Container>
+    <SEO title="Главная" />
+    <HomeComponent categories={categories} />
   </>
 );
 

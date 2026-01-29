@@ -1,4 +1,4 @@
-import { Container, Stack, styled } from '@mui/material';
+import { alpha, Container, Skeleton, Stack, styled } from '@mui/material';
 import Image from 'next/image';
 
 export const StyledWrapper = styled(Stack, { shouldForwardProp: (props) => props !== 'pathName' })<{
@@ -31,6 +31,7 @@ export const StyledContent = styled(Stack)(
 export const StyledContainer = styled(Container)({
   height: 'inherit',
   display: 'flex',
+  position: 'relative',
   flexDirection: 'column',
   justifyContent: 'space-between',
 });
@@ -54,4 +55,14 @@ export const StyledPanelsWrapper = styled(Stack)(({ theme: { spacing, breakpoint
     maxWidth: '400px',
     margin: `${spacing(8)} auto 0`,
   },
+}));
+
+export const StyledHeaderSkeleton = styled(Skeleton)(({ theme: { palette, spacing } }) => ({
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%',
+  position: 'absolute',
+  borderRadius: spacing(2),
+  background: alpha(palette.secondary.main, 0.4),
 }));

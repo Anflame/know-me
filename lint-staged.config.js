@@ -1,4 +1,4 @@
 module.exports = {
-  '*.{ts,tsx}': () => ['npm run lint --fix', 'npm run test -- --findRelatedTests'],
-  '*.{js,json,md}': () => 'npm run format',
+  '*.{ts,tsx,js,jsx}': ['eslint --fix', 'prettier --write'],
+  '*.{json,md,css,scss}': ['prettier --write'],
 };

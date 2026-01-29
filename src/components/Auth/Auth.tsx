@@ -17,7 +17,7 @@ const Auth = forwardRef<HTMLDivElement, AuthProps>(({ isSignUp, onClose, isOpen 
       <StyledIconButton onClick={onClose} data-testid="auth-button-close">
         <CloseIcon color="primary" />
       </StyledIconButton>
-      <AuthForm isSignUp={isSignUp} />
+      <AuthForm isSignUp={isSignUp} onClose={onClose} />
     </StyledContent>
   </Backdrop>
 ));

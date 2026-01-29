@@ -32,7 +32,7 @@ describe('useAuth', () => {
     });
 
     const wrapper = createWrapper();
-    const { result } = renderHook(() => useAuth(true), { wrapper });
+    const { result } = renderHook(() => useAuth(true, () => {}), { wrapper });
 
     act(() => {
       result.current.handleAuth({ email: 'a@a.ru', password: 'Aa123456', name: 'Den' });
@@ -60,15 +60,15 @@ describe('useAuth', () => {
     });
 
     const wrapper = createWrapper();
-    renderHook(() => useAuth(true), { wrapper });
+    renderHook(() => useAuth(true, () => {}), { wrapper });
 
     act(() => {
-      onSuccess?.({ access_token: 'acc', refresh_token: 'ref' });
+      onSuccess?.({ accessToken: 'acc', refreshToken: 'ref' });
     });
 
     expect(setMock).toHaveBeenCalledTimes(1);
-    expect(setMock).toHaveBeenCalledWith('tokens', expect.stringContaining('access_token=acc'));
-    expect(setMock).toHaveBeenCalledWith('tokens', expect.stringContaining('refresh_token=ref'));
+    expect(setMock).toHaveBeenCalledWith('tokens', expect.stringContaining('accessToken=acc'));
+    expect(setMock).toHaveBeenCalledWith('tokens', expect.stringContaining('refreshToken=ref'));
   });
 
   it('onSuccess does nothing if tokens shape is invalid (negative branch)', () => {
@@ -85,10 +85,10 @@ describe('useAuth', () => {
     });
 
     const wrapper = createWrapper();
-    renderHook(() => useAuth(true), { wrapper });
+    renderHook(() => useAuth(true, () => {}), { wrapper });
 
     act(() => {
-      onSuccess?.({ access_token: 'acc' });
+      onSuccess?.({ accessToken: 'acc' });
     });
 
     expect(setMock).not.toHaveBeenCalled();

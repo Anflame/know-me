@@ -2,7 +2,7 @@ import { render, RenderOptions } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import React, { ReactElement, ReactNode } from 'react';
 
-import { AuthContext, ErrorContext } from '@/utils';
+import { AuthContext, AlertContext } from '@/utils';
 
 export const AllTheProviders = ({ children }: { children: ReactNode }) => {
   const queryClient = new QueryClient({
@@ -32,21 +32,21 @@ export function createTestQueryClient() {
 export function createWrapper({
   queryClient = createTestQueryClient(),
   changeAuth = jest.fn(),
-  showError = jest.fn(),
+  showAlert = jest.fn(),
 }: {
   queryClient?: QueryClient;
   changeAuth?: jest.Mock;
-  showError?: jest.Mock;
+  showAlert?: jest.Mock;
 } = {}) {
   return ({ children }: { children: ReactNode }) => (
     <QueryClientProvider client={queryClient}>
       {/* eslint-disable-next-line react/jsx-no-constructed-context-values */}
-      <ErrorContext.Provider value={{ showError, message: '' }}>
+      <AlertContext.Provider value={{ showAlert, type: 'error', message: '' }}>
         {/* eslint-disable-next-line react/jsx-no-constructed-context-values */}
         <AuthContext.Provider value={{ changeAuth, isAuth: false }}>
           {children}
         </AuthContext.Provider>
-      </ErrorContext.Provider>
+      </AlertContext.Provider>
     </QueryClientProvider>
   );
 }

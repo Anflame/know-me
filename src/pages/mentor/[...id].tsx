@@ -1,21 +1,29 @@
 import { FC } from 'react';
-import { Mentor } from '@/components/Mentor';
-import { mentors } from '@/constants/mentors';
+import { Mentor as MentorComponent } from '@/components/Mentor';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import { IMentorCard } from '@/types';
+import { fetcher } from '@/lib/helpers';
+import { SEO } from '@/components/SEO';
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  const paramsId = params?.id;
+export const getServerSideProps: GetServerSideProps<{ mentor: IMentorCard }> = async ({
+  params,
+}) => {
+  const id = params?.id?.[0];
 
-  // TODO: выпилить когда будет апи
-  const mentor = paramsId ? mentors.filter(({ id }) => +paramsId === id)[0] : undefined;
+  if (!id) return { notFound: true };
 
-  return {
-    props: { mentor },
-  };
+  const result = await fetcher<IMentorCard>(`/mentor/${id}`);
+
+  if (result.error || !result.data) return { notFound: true };
+
+  return { props: { mentor: result.data } };
 };
 
 const MentorPage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ mentor }) => (
-  <Mentor {...mentor} />
+  <>
+    <SEO title={mentor.title} description={mentor.description} />
+    <MentorComponent {...mentor} />
+  </>
 );
 
 export default MentorPage;

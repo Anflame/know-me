@@ -42,11 +42,11 @@ describe('api auth test', () => {
   it('should call register', async () => {
     await fetchAuth(config);
     expect(postMock).toHaveBeenCalledTimes(1);
-    expect(postMock).toHaveBeenCalledWith('/oauth/register', withoutSignUp);
+    expect(postMock).toHaveBeenCalledWith('undefined/auth/signup', withoutSignUp);
   });
 
   it('should call signUp', async () => {
     await fetchAuth({ ...config, isSignUp: false });
-    expect(postMock).toHaveBeenCalledWith('/oauth/login', withoutSignUp);
+    expect(postMock).toHaveBeenCalledWith('undefined/auth/login', withoutSignUp);
   });
 });

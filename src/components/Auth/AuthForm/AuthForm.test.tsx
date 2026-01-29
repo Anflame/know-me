@@ -10,6 +10,7 @@ jest.mock('./hooks', () => ({
 }));
 
 const useAuthMock = useAuth as jest.Mock;
+const onClose = jest.fn();
 
 describe('auth form', () => {
   const handleAuth = jest.fn();
@@ -24,19 +25,19 @@ describe('auth form', () => {
   });
 
   it('should render sign up form', () => {
-    render(<AuthForm isSignUp />);
+    render(<AuthForm isSignUp onClose={onClose} />);
 
     expect(screen.getByTestId('name-field')).toBeInTheDocument();
   });
 
   it('should render login up form', () => {
-    render(<AuthForm isSignUp={false} />);
+    render(<AuthForm isSignUp={false} onClose={onClose} />);
 
     expect(screen.queryByTestId('name-field')).not.toBeInTheDocument();
   });
 
   it('shouldn"t show progress', () => {
-    render(<AuthForm isSignUp />);
+    render(<AuthForm isSignUp onClose={onClose} />);
 
     expect(screen.queryByTestId('circular-progress')).not.toBeInTheDocument();
   });
@@ -46,7 +47,7 @@ describe('auth form', () => {
       handleAuth,
       isLoading: true,
     });
-    render(<AuthForm isSignUp />);
+    render(<AuthForm isSignUp onClose={onClose} />);
 
     expect(screen.getByTestId('circular-progress')).toBeInTheDocument();
   });
@@ -56,7 +57,7 @@ describe('auth form', () => {
       handleAuth,
       isLoading: false,
     });
-    render(<AuthForm isSignUp />);
+    render(<AuthForm isSignUp onClose={onClose} />);
     const user = userEvent.setup();
 
     await user.type(screen.getByLabelText('Email'), 'asd@mail.ru');
@@ -68,7 +69,7 @@ describe('auth form', () => {
   });
 
   it('should call handleSubmit handler with login props', async () => {
-    render(<AuthForm isSignUp={false} />);
+    render(<AuthForm isSignUp={false} onClose={onClose} />);
     const user = userEvent.setup();
 
     await user.type(screen.getByLabelText('Email'), 'asd@mail.ru');
@@ -79,7 +80,7 @@ describe('auth form', () => {
   });
 
   it('changing password visibility', async () => {
-    render(<AuthForm isSignUp />);
+    render(<AuthForm isSignUp onClose={onClose} />);
 
     const user = userEvent.setup();
 
@@ -92,7 +93,7 @@ describe('auth form', () => {
   });
 
   it('shows name validation error on sign up', async () => {
-    render(<AuthForm isSignUp />);
+    render(<AuthForm isSignUp onClose={onClose} />);
     const user = userEvent.setup();
 
     await user.type(screen.getByLabelText('Email'), 'asd@mail.ru');

@@ -1,6 +1,5 @@
 import { IChat } from '@/types';
 
-// TODO: выпилить после подключения api
 export const chats: IChat[] = [
   {
     _id: '1',

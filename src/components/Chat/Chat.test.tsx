@@ -53,7 +53,6 @@ describe('Chat component test', () => {
 
     await user.click(screen.getByTestId('submit-button'));
 
-    screen.debug();
     expect(screen.queryByText(/привет, новое сообщение/i)).not.toBeInTheDocument();
     expect(screen.getByLabelText('Введите сообщение')).toHaveAttribute('aria-invalid');
   });

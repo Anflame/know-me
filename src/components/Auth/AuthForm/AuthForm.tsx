@@ -14,11 +14,12 @@ import { StyledButton } from './styles';
 
 interface IAuthFormProps {
   isSignUp: boolean;
+  onClose: () => void;
 }
 
-const AuthForm: FC<IAuthFormProps> = ({ isSignUp }) => {
+const AuthForm: FC<IAuthFormProps> = ({ isSignUp, onClose }) => {
   const [showPassword, setShowPassword] = useState(false);
-  const { handleAuth, isLoading } = useAuth(isSignUp);
+  const { handleAuth, isLoading } = useAuth(isSignUp, onClose);
 
   const customAuthConfig = {
     email: '',
