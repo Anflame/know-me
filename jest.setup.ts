@@ -1,5 +1,9 @@
 import '@testing-library/jest-dom';
 
+jest.mock('dateformat', () => ({
+  default: jest.fn(() => '2025-12-14'),
+}));
+
 jest.mock('next/router', () => ({
   useRouter: () => ({
     route: '/',

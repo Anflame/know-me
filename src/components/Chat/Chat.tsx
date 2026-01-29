@@ -19,7 +19,7 @@ import {
 } from './styles';
 
 export interface IChatProps {
-  id: string;
+  id?: string;
   companionImage: Pick<IChat, 'title' | 'alt' | 'image'>;
   userImage: IUserImage;
 }
@@ -84,7 +84,7 @@ const Chat: FC<IChatProps> = ({ id, companionImage, userImage }) => {
                 fullWidth
               />
             </Box>
-            <StyledSendIcon type="submit">
+            <StyledSendIcon type="submit" data-testid="submit-button">
               <SendIcon color={errors.newMessage?.message ? 'error' : 'secondary'} />
             </StyledSendIcon>
           </StyledFormWrapper>

@@ -1,4 +1,4 @@
-import { useState, Dispatch, SetStateAction } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 import type { IFilterGroup } from '@/types';
@@ -7,7 +7,7 @@ import { getSelectableFilters, transformFiltersToURLParams, changeFilterChecked 
 
 export const useFilters = (
   filterGroups: IFilterGroup[],
-  closeFilters: Dispatch<SetStateAction<boolean>>
+  closeFilters: (value: boolean) => void
 ) => {
   const [selectableFilters, setSelectableFilters] = useState(getSelectableFilters(filterGroups));
 
@@ -19,7 +19,8 @@ export const useFilters = (
   };
 
   const handleFilter = async () => {
-    await push(`/mentors?${transformFiltersToURLParams(selectableFilters)}`, '', { scroll: false });
+    const transformed = transformFiltersToURLParams(selectableFilters);
+    await push(`/mentors?${transformed ?? ''}`, '', { scroll: false });
     closeFilters(false);
   };
 

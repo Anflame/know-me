@@ -81,9 +81,14 @@ const AuthForm: FC<IAuthFormProps> = ({ isSignUp }) => {
               <IconButton
                 aria-label="toggle password visibility"
                 onClick={handleClickShowPassword}
+                data-testid="toggle-password"
                 onMouseDown={(e) => e.preventDefault()}
               >
-                {showPassword ? <VisibilityOff /> : <Visibility />}
+                {showPassword ? (
+                  <VisibilityOff data-testid="icon-visibility-on" />
+                ) : (
+                  <Visibility data-testid="icon-visibility-off" />
+                )}
               </IconButton>
             </InputAdornment>
           ),
@@ -94,6 +99,7 @@ const AuthForm: FC<IAuthFormProps> = ({ isSignUp }) => {
         {isLoading && (
           <CircularProgress
             size="25px"
+            data-testid="circular-progress"
             style={{
               position: 'absolute',
             }}

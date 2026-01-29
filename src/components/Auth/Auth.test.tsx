@@ -2,10 +2,6 @@ import { render, screen } from '@test/test-utils';
 import { userEvent } from '@testing-library/user-event';
 import Auth from './Auth';
 
-jest.mock('dateformat', () => ({
-  default: jest.fn(() => '2025-12-14'),
-}));
-
 describe('auth popup', () => {
   const onClose = jest.fn();
   const obj = {
