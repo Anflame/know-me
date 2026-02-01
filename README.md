@@ -1,6 +1,6 @@
-# KnowMe --- Frontend Engineering Case Study (Next.js)
+# KnowMe Frontend Engineering Case Study (Next.js)
 
-KnowMe --- демонстрационный frontend-проект, сфокусированный на
+KnowMe - демонстрационный frontend-проект, сфокусированный на
 архитектуре, качестве кода, тестируемости и работе с серверными данными
 в SSR-приложении на Next.js.
 
@@ -102,4 +102,4 @@ npm run dev
 ## 🌐 Деплой
 
 Vercel: preview для PR, production при merge в main
-production lik: https://know-me-nine.vercel.app/
+production published link: https://know-me-nine.vercel.app/
